@@ -1,52 +1,50 @@
-# EDD-Runner
+# Valgrind y C en Docker
 
-## Descripción
+[Cápsula de como usar este setup](https://youtu.be/KlViufcUxRQ)
 
-`edd-runner` es un programa para reemplazar el antiguo `edd-docker` que permite ejecutar los programas dentro de docker sin necesidad de la tediosa consola separada. Además entrega un ejecutable capaz de simplificar la actualización y almacenamiento de los programas.
+## Pasos para instalar
 
-## Requisitos
+1. Instala Docker y docker-compose. En macOS basta con instalar [docker desktop](https://docs.docker.com/desktop/mac/install).
+2. Verifica que tienes docker instalado con `docker -v`
+3. Clona este repositorio: `git clone https://github.com/IIC2133-PUC/edd-docker.git && cd edd-docker`. corre `make start` dentro del directorio clonado.
 
-La imagen esta construida para funcionar dentro de Mac con arquitectura ARM64. Aunque esta planificado para nuevos releases en AMD64 y ARMV7.
+Nota, La primera vez tomara mucho tiempo ya que el container se construira, pero en posteriores ejecuciones deberia partir rapido.
+## Cómo usar
 
-- make
-- docker
+1. Luego de ejecutar `make start` Se entrara automaticamente al contenedor. En tu terminal deberia salir algo similar a `root@0<id del contenedor>:/volume`.
+2. Hace `cd` hacia la carpeta que deseas acceder.
+3. desde aca puedes utilizar la consola como quieras, para compilar, ejecutar o utilizar valgrind.
 
-## Quickstart
-
-La instalación se realiza clonando el repositorio y ejecutando el comando `make install` dentro de la carpeta del repositorio.
-
-```bash
-git clone https://github.com/IIC2133-PUC/edd-runner.git
-make install
+Por ejemplo si tienes la carpeta
+```
+ │volume
+    └───code
+    │   └───src
+    │   │
+    │   └───tests
+    │   │
+    │   └Makefile
 ```
 
-## Instalación y Desinstalación
+los comandos son ejecutados *Dentro* del container (con el comando mencionado anteriormente)
 
-Para instalar el programa se debe ejecutar el siguiente comando:
-```bash
-make install
+```
+cd code/ # entrar a la carpeta que deseamos
+make
+./program # ejecutar ejecutar el ejecutable
+valgrind ./program #ejecutar valgrind
 ```
 
-Para desinstalar el programa se debe ejecutar el siguiente comando:
 
-```bash
-make uninstall
-```
 
-Para actualizar el programa se debe ejecutar el siguiente comando:
+## Consideraciones importantes
 
-```bash
-make update
-```
+- El contenedor de docker y tu computador _comparten_ la carpeta `/volumes`, por lo tanto puedes modificar cualquier archivo desde afuera del contenedor y los cambios se veran reflejados adentro también.
 
-## Uso
+- Lo unico importante es siempre compilar tu codigo _desde adentro del contenedor_. Preocupate de seguir el 2do paso en la seccion `Cómo usar` para entrar al contenedor. Si compilas tu codigo desde afuera, puede ser que el binario resultante sea distinto y te arroje errores al ejecutarlo dentro del contenedor.
 
-Para ejecutar el programa se debe ejecutar el siguiente comando:
+- El compilador y valgrind vienen instalados, no debes instalarlos tu. Puedes probar que valgrind esté funcionando: `valgrind ./program`. Si crees que algo más debiera estar instalado por defecto avisame :)
 
-```bash
-edd-runner <programa> <argumentos>
-```
+- Si deseas cambiarle el nombre al container, basta con cambiarlo en el archivo `docker-compose.yml`
 
-## Contribuir y Soporte
-
-Para contribuir a este script se debe clonar el repositorio y crear un pull request con los cambios. Para soporte contactar a [Carlos Paredes (CarloGauss33)](https://github.com/CarloGauss33)
+- La primera vez que ejecutes `docker-compose up -d` tomara algun tiempo ya que ha de descargar todos los archivos nescesarios.

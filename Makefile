@@ -1,25 +1,13 @@
-install:
-	@echo "Installing edd-runner to /usr/local/bin"
-	@cp setup/install.sh /usr/local/bin/edd-runner
-	@chmod +x /usr/local/bin/edd-runner
-	@echo "Installation complete"
+SHELL := /bin/bash
 
-uninstall:
-	@echo "Uninstalling edd-runner from /usr/local/bin"
-	@rm -f /usr/local/bin/edd-runner
-	@echo "Uninstallation complete"
+run: help
 
-update:
-	@echo "Updating edd-runner to /usr/local/bin"
-	@cp setup/install.sh /usr/local/bin/edd-runner
-	@chmod +x /usr/local/bin/edd-runner
-	@echo "Update complete"
+BOLD ?= $(shell tput bold)
+NORMAL ?= $(shell tput sgr0)
 
 help:
-	@echo "Usage: make [target]"
-	@echo "Targets:"
-	@echo "  install: install edd-runner to /usr/local/bin"
-	@echo "  uninstall: uninstall edd-runner from /usr/local/bin"
-	@echo "  help: print this help message"
+	@echo "To build container run: make start"
 
-all: install
+start:
+	docker-compose up -d
+	docker-compose exec mycontainer /bin/bash
