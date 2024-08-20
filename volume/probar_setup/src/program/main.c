@@ -108,26 +108,61 @@ char* remove_pinguin_from_store(Store *store, int pinguin_id) {
 
 char* info_store(Store *store) {
     int count_puffles = 0;
-    char *message = malloc(1000);
-    snprintf(message, 1000, "STATUS:\n    Total penguins: %d\n", store->num_pinguins);
+    size_t message_size = 1000;
+    char *message = malloc(message_size);
+
+    size_t used = 0;
+    used += snprintf(message + used, message_size - used, "STATUS:\n    Total penguins: %d\n", store->num_pinguins);
+
     for (int i = 0; i < store->num_pinguins; i++) {
         char buffer[100];
-        snprintf(buffer, 100, "    Penguin %d:\n", store->pinguins[i].id);
-        strcat(message, buffer);
+        int needed = snprintf(buffer, sizeof(buffer), "    Penguin %d:\n", store->pinguins[i].id);
+
+        if (used + needed >= message_size) {
+            message_size *= 2;  // Duplicamos el tamaño del buffer si es necesario
+            message = realloc(message, message_size);
+        }
+
+        strcat(message + used, buffer);
+        used += needed;
+
         for (int j = 0; j < store->pinguins[i].num_puffles; j++) {
-            snprintf(buffer, 100, "        Puffle %d\n", store->pinguins[i].puffles[j].id);
-            strcat(message, buffer);
+            needed = snprintf(buffer, sizeof(buffer), "        Puffle %d\n", store->pinguins[i].puffles[j].id);
+            if (used + needed >= message_size) {
+                message_size *= 2;
+                message = realloc(message, message_size);
+            }
+            strcat(message + used, buffer);
+            used += needed;
             count_puffles++;
         }
+
         if (store->pinguins[i].num_puffles == 0) {
-            strcat(message, "        Does not have puffles\n");
+            const char *no_puffles_msg = "        Does not have puffles\n";
+            needed = strlen(no_puffles_msg);
+            if (used + needed >= message_size) {
+                message_size *= 2;
+                message = realloc(message, message_size);
+            }
+
+            strcat(message + used, no_puffles_msg);
+            used += needed;
         }
     }
+
     char buffer[100];
-    snprintf(buffer, 100, "    Total puffles: %d\n", count_puffles);
-    strcat(message, buffer);
+    int needed = snprintf(buffer, sizeof(buffer), "    Total puffles: %d\n", count_puffles);
+
+    if (used + needed >= message_size) {
+        message_size *= 2;
+        message = realloc(message, message_size);
+    }
+
+    strcat(message + used, buffer);
+
     return message;
 }
+
 
 char* count_color(Store *store, char *color) {
     int count = 0;

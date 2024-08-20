@@ -1,0 +1,1015 @@
+Penguin 6 has entered with 51 puffles
+Leaving 6 with 51 puffles
+Penguin 2 has entered with 54 puffles
+Leaving 2 with 54 puffles
+Penguin 1 has entered with 29 puffles
+Leaving 1 with 29 puffles
+Penguin 5 has entered with 53 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 5:
+        Puffle 143
+        Puffle 150
+        Puffle 147
+        Puffle 149
+        Puffle 146
+        Puffle 144
+        Puffle 162
+        Puffle 158
+        Puffle 154
+        Puffle 160
+        Puffle 161
+        Puffle 155
+        Puffle 163
+        Puffle 156
+        Puffle 157
+        Puffle 159
+        Puffle 166
+        Puffle 170
+        Puffle 165
+        Puffle 173
+        Puffle 167
+        Puffle 171
+        Puffle 168
+        Puffle 174
+        Puffle 169
+        Puffle 172
+        Puffle 181
+        Puffle 182
+        Puffle 179
+        Puffle 177
+        Puffle 178
+        Puffle 185
+        Puffle 183
+        Puffle 180
+        Puffle 176
+        Puffle 184
+        Puffle 195
+        Puffle 191
+        Puffle 192
+        Puffle 193
+        Puffle 189
+        Puffle 188
+        Puffle 190
+        Puffle 187
+        Puffle 194
+        Puffle 196
+        Puffle 204
+        Puffle 207
+        Puffle 205
+        Puffle 201
+        Puffle 199
+        Puffle 200
+        Puffle 206
+    Total puffles: 53
+STATUS:
+    Total penguins: 1
+    Penguin 5:
+        Puffle 143
+        Puffle 150
+        Puffle 147
+        Puffle 149
+        Puffle 146
+        Puffle 144
+        Puffle 162
+        Puffle 158
+        Puffle 154
+        Puffle 160
+        Puffle 161
+        Puffle 155
+        Puffle 163
+        Puffle 156
+        Puffle 157
+        Puffle 159
+        Puffle 166
+        Puffle 170
+        Puffle 165
+        Puffle 173
+        Puffle 167
+        Puffle 171
+        Puffle 168
+        Puffle 174
+        Puffle 169
+        Puffle 172
+        Puffle 181
+        Puffle 182
+        Puffle 179
+        Puffle 177
+        Puffle 178
+        Puffle 185
+        Puffle 183
+        Puffle 180
+        Puffle 176
+        Puffle 184
+        Puffle 195
+        Puffle 191
+        Puffle 192
+        Puffle 193
+        Puffle 189
+        Puffle 188
+        Puffle 190
+        Puffle 187
+        Puffle 194
+        Puffle 196
+        Puffle 204
+        Puffle 207
+        Puffle 205
+        Puffle 201
+        Puffle 199
+        Puffle 200
+        Puffle 206
+    Total puffles: 53
+STATUS:
+    Total penguins: 1
+    Penguin 5:
+        Puffle 143
+        Puffle 150
+        Puffle 147
+        Puffle 149
+        Puffle 146
+        Puffle 144
+        Puffle 162
+        Puffle 158
+        Puffle 154
+        Puffle 160
+        Puffle 161
+        Puffle 155
+        Puffle 163
+        Puffle 156
+        Puffle 157
+        Puffle 159
+        Puffle 166
+        Puffle 170
+        Puffle 165
+        Puffle 173
+        Puffle 167
+        Puffle 171
+        Puffle 168
+        Puffle 174
+        Puffle 169
+        Puffle 172
+        Puffle 181
+        Puffle 182
+        Puffle 179
+        Puffle 177
+        Puffle 178
+        Puffle 185
+        Puffle 183
+        Puffle 180
+        Puffle 176
+        Puffle 184
+        Puffle 195
+        Puffle 191
+        Puffle 192
+        Puffle 193
+        Puffle 189
+        Puffle 188
+        Puffle 190
+        Puffle 187
+        Puffle 194
+        Puffle 196
+        Puffle 204
+        Puffle 207
+        Puffle 205
+        Puffle 201
+        Puffle 199
+        Puffle 200
+        Puffle 206
+    Total puffles: 53
+Penguin 0 has entered with 17 puffles
+Leaving 5 with 53 puffles
+Leaving 0 with 17 puffles
+Penguin 4 has entered with 16 puffles
+Leaving 4 with 16 puffles
+Penguin 8 has entered with 40 puffles
+Leaving 8 with 40 puffles
+Penguin 3 has entered with 3 puffles
+Leaving 3 with 3 puffles
+Penguin 9 has entered with 35 puffles
+Leaving 9 with 35 puffles
+Penguin 7 has entered with 54 puffles
+Leaving 7 with 54 puffles
+Penguin 18 has entered with 55 puffles
+Leaving 18 with 55 puffles
+Penguin 17 has entered with 4 puffles
+Leaving 17 with 4 puffles
+Penguin 12 has entered with 27 puffles
+Penguin 13 has entered with 56 puffles
+STATUS:
+    Total penguins: 2
+    Penguin 12:
+        Puffle 458
+        Puffle 454
+        Puffle 455
+        Puffle 456
+        Puffle 457
+        Puffle 451
+        Puffle 460
+        Puffle 459
+        Puffle 452
+        Puffle 467
+        Puffle 469
+        Puffle 471
+        Puffle 462
+        Puffle 465
+        Puffle 463
+        Puffle 466
+        Puffle 464
+        Puffle 470
+        Puffle 468
+        Puffle 479
+        Puffle 480
+        Puffle 477
+        Puffle 476
+        Puffle 474
+        Puffle 481
+        Puffle 475
+        Puffle 482
+    Penguin 13:
+        Puffle 473
+        Puffle 478
+        Puffle 484
+        Puffle 491
+        Puffle 490
+        Puffle 486
+        Puffle 485
+        Puffle 488
+        Puffle 493
+        Puffle 489
+        Puffle 492
+        Puffle 487
+        Puffle 502
+        Puffle 495
+        Puffle 497
+        Puffle 503
+        Puffle 504
+        Puffle 499
+        Puffle 496
+        Puffle 500
+        Puffle 498
+        Puffle 501
+        Puffle 509
+        Puffle 507
+        Puffle 508
+        Puffle 511
+        Puffle 515
+        Puffle 514
+        Puffle 510
+        Puffle 512
+        Puffle 513
+        Puffle 506
+        Puffle 526
+        Puffle 517
+        Puffle 522
+        Puffle 521
+        Puffle 518
+        Puffle 520
+        Puffle 519
+        Puffle 525
+        Puffle 523
+        Puffle 524
+        Puffle 533
+        Puffle 530
+        Puffle 534
+        Puffle 531
+        Puffle 537
+        Puffle 532
+        Puffle 535
+        Puffle 529
+        Puffle 536
+        Puffle 528
+        Puffle 548
+        Puffle 540
+        Puffle 544
+        Puffle 545
+    Total puffles: 83
+STATUS:
+    Total penguins: 2
+    Penguin 12:
+        Puffle 458
+        Puffle 454
+        Puffle 455
+        Puffle 456
+        Puffle 457
+        Puffle 451
+        Puffle 460
+        Puffle 459
+        Puffle 452
+        Puffle 467
+        Puffle 469
+        Puffle 471
+        Puffle 462
+        Puffle 465
+        Puffle 463
+        Puffle 466
+        Puffle 464
+        Puffle 470
+        Puffle 468
+        Puffle 479
+        Puffle 480
+        Puffle 477
+        Puffle 476
+        Puffle 474
+        Puffle 481
+        Puffle 475
+        Puffle 482
+    Penguin 13:
+        Puffle 473
+        Puffle 478
+        Puffle 484
+        Puffle 491
+        Puffle 490
+        Puffle 486
+        Puffle 485
+        Puffle 488
+        Puffle 493
+        Puffle 489
+        Puffle 492
+        Puffle 487
+        Puffle 502
+        Puffle 495
+        Puffle 497
+        Puffle 503
+        Puffle 504
+        Puffle 499
+        Puffle 496
+        Puffle 500
+        Puffle 498
+        Puffle 501
+        Puffle 509
+        Puffle 507
+        Puffle 508
+        Puffle 511
+        Puffle 515
+        Puffle 514
+        Puffle 510
+        Puffle 512
+        Puffle 513
+        Puffle 506
+        Puffle 526
+        Puffle 517
+        Puffle 522
+        Puffle 521
+        Puffle 518
+        Puffle 520
+        Puffle 519
+        Puffle 525
+        Puffle 523
+        Puffle 524
+        Puffle 533
+        Puffle 530
+        Puffle 534
+        Puffle 531
+        Puffle 537
+        Puffle 532
+        Puffle 535
+        Puffle 529
+        Puffle 536
+        Puffle 528
+        Puffle 548
+        Puffle 540
+        Puffle 544
+        Puffle 545
+    Total puffles: 83
+Leaving 13 with 56 puffles
+Penguin 19 has entered with 35 puffles
+STATUS:
+    Total penguins: 2
+    Penguin 12:
+        Puffle 458
+        Puffle 454
+        Puffle 455
+        Puffle 456
+        Puffle 457
+        Puffle 451
+        Puffle 460
+        Puffle 459
+        Puffle 452
+        Puffle 467
+        Puffle 469
+        Puffle 471
+        Puffle 462
+        Puffle 465
+        Puffle 463
+        Puffle 466
+        Puffle 464
+        Puffle 470
+        Puffle 468
+        Puffle 479
+        Puffle 480
+        Puffle 477
+        Puffle 476
+        Puffle 474
+        Puffle 481
+        Puffle 475
+        Puffle 482
+    Penguin 19:
+        Puffle 543
+        Puffle 541
+        Puffle 546
+        Puffle 547
+        Puffle 539
+        Puffle 542
+        Puffle 552
+        Puffle 553
+        Puffle 551
+        Puffle 558
+        Puffle 550
+        Puffle 555
+        Puffle 554
+        Puffle 556
+        Puffle 557
+        Puffle 559
+        Puffle 567
+        Puffle 565
+        Puffle 570
+        Puffle 568
+        Puffle 561
+        Puffle 564
+        Puffle 569
+        Puffle 563
+        Puffle 562
+        Puffle 566
+        Puffle 580
+        Puffle 581
+        Puffle 576
+        Puffle 579
+        Puffle 578
+        Puffle 577
+        Puffle 575
+        Puffle 573
+        Puffle 574
+    Total puffles: 62
+STATUS:
+    Total penguins: 2
+    Penguin 12:
+        Puffle 458
+        Puffle 454
+        Puffle 455
+        Puffle 456
+        Puffle 457
+        Puffle 451
+        Puffle 460
+        Puffle 459
+        Puffle 452
+        Puffle 467
+        Puffle 469
+        Puffle 471
+        Puffle 462
+        Puffle 465
+        Puffle 463
+        Puffle 466
+        Puffle 464
+        Puffle 470
+        Puffle 468
+        Puffle 479
+        Puffle 480
+        Puffle 477
+        Puffle 476
+        Puffle 474
+        Puffle 481
+        Puffle 475
+        Puffle 482
+    Penguin 19:
+        Puffle 543
+        Puffle 541
+        Puffle 546
+        Puffle 547
+        Puffle 539
+        Puffle 542
+        Puffle 552
+        Puffle 553
+        Puffle 551
+        Puffle 558
+        Puffle 550
+        Puffle 555
+        Puffle 554
+        Puffle 556
+        Puffle 557
+        Puffle 559
+        Puffle 567
+        Puffle 565
+        Puffle 570
+        Puffle 568
+        Puffle 561
+        Puffle 564
+        Puffle 569
+        Puffle 563
+        Puffle 562
+        Puffle 566
+        Puffle 580
+        Puffle 581
+        Puffle 576
+        Puffle 579
+        Puffle 578
+        Puffle 577
+        Puffle 575
+        Puffle 573
+        Puffle 574
+    Total puffles: 62
+STATUS:
+    Total penguins: 2
+    Penguin 12:
+        Puffle 458
+        Puffle 454
+        Puffle 455
+        Puffle 456
+        Puffle 457
+        Puffle 451
+        Puffle 460
+        Puffle 459
+        Puffle 452
+        Puffle 467
+        Puffle 469
+        Puffle 471
+        Puffle 462
+        Puffle 465
+        Puffle 463
+        Puffle 466
+        Puffle 464
+        Puffle 470
+        Puffle 468
+        Puffle 479
+        Puffle 480
+        Puffle 477
+        Puffle 476
+        Puffle 474
+        Puffle 481
+        Puffle 475
+        Puffle 482
+    Penguin 19:
+        Puffle 543
+        Puffle 541
+        Puffle 546
+        Puffle 547
+        Puffle 539
+        Puffle 542
+        Puffle 552
+        Puffle 553
+        Puffle 551
+        Puffle 558
+        Puffle 550
+        Puffle 555
+        Puffle 554
+        Puffle 556
+        Puffle 557
+        Puffle 559
+        Puffle 567
+        Puffle 565
+        Puffle 570
+        Puffle 568
+        Puffle 561
+        Puffle 564
+        Puffle 569
+        Puffle 563
+        Puffle 562
+        Puffle 566
+        Puffle 580
+        Puffle 581
+        Puffle 576
+        Puffle 579
+        Puffle 578
+        Puffle 577
+        Puffle 575
+        Puffle 573
+        Puffle 574
+    Total puffles: 62
+Leaving 12 with 27 puffles
+Leaving 19 with 35 puffles
+Penguin 11 has entered with 33 puffles
+Penguin 20 has entered with 18 puffles
+Penguin 15 has entered with 2 puffles
+Leaving 11 with 33 puffles
+STATUS:
+    Total penguins: 2
+    Penguin 20:
+        Puffle 622
+        Puffle 616
+        Puffle 617
+        Puffle 625
+        Puffle 618
+        Puffle 620
+        Puffle 619
+        Puffle 623
+        Puffle 628
+        Puffle 629
+        Puffle 630
+        Puffle 627
+        Puffle 635
+        Puffle 636
+        Puffle 633
+        Puffle 632
+        Puffle 634
+        Puffle 631
+    Penguin 15:
+        Puffle 646
+        Puffle 639
+    Total puffles: 20
+Leaving 20 with 18 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 15:
+        Puffle 646
+        Puffle 639
+    Total puffles: 2
+Leaving 15 with 2 puffles
+Penguin 16 has entered with 50 puffles
+Leaving 16 with 50 puffles
+Penguin 14 has entered with 52 puffles
+Penguin 30 has entered with 0 puffles
+STATUS:
+    Total penguins: 2
+    Penguin 14:
+        Puffle 696
+        Puffle 701
+        Puffle 697
+        Puffle 698
+        Puffle 700
+        Puffle 699
+        Puffle 693
+        Puffle 702
+        Puffle 712
+        Puffle 704
+        Puffle 713
+        Puffle 706
+        Puffle 711
+        Puffle 705
+        Puffle 709
+        Puffle 710
+        Puffle 707
+        Puffle 708
+        Puffle 723
+        Puffle 716
+        Puffle 718
+        Puffle 724
+        Puffle 715
+        Puffle 721
+        Puffle 719
+        Puffle 722
+        Puffle 717
+        Puffle 720
+        Puffle 733
+        Puffle 727
+        Puffle 730
+        Puffle 729
+        Puffle 734
+        Puffle 726
+        Puffle 731
+        Puffle 735
+        Puffle 728
+        Puffle 732
+        Puffle 739
+        Puffle 743
+        Puffle 738
+        Puffle 746
+        Puffle 744
+        Puffle 737
+        Puffle 742
+        Puffle 740
+        Puffle 745
+        Puffle 741
+        Puffle 751
+        Puffle 752
+        Puffle 757
+        Puffle 748
+    Penguin 30:
+        Does not have puffles
+    Total puffles: 52
+Leaving 14 with 52 puffles
+Leaving 30 with 0 puffles
+Penguin 24 has entered with 25 puffles
+Leaving 24 with 25 puffles
+Penguin 27 has entered with 44 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 27:
+        Puffle 777
+        Puffle 790
+        Puffle 787
+        Puffle 785
+        Puffle 781
+        Puffle 788
+        Puffle 786
+        Puffle 782
+        Puffle 789
+        Puffle 783
+        Puffle 784
+        Puffle 801
+        Puffle 795
+        Puffle 799
+        Puffle 798
+        Puffle 800
+        Puffle 794
+        Puffle 793
+        Puffle 797
+        Puffle 792
+        Puffle 796
+        Puffle 810
+        Puffle 806
+        Puffle 805
+        Puffle 812
+        Puffle 804
+        Puffle 808
+        Puffle 809
+        Puffle 811
+        Puffle 803
+        Puffle 807
+        Puffle 816
+        Puffle 823
+        Puffle 818
+        Puffle 815
+        Puffle 817
+        Puffle 819
+        Puffle 820
+        Puffle 821
+        Puffle 814
+        Puffle 822
+        Puffle 834
+        Puffle 827
+        Puffle 826
+    Total puffles: 44
+Leaving 27 with 44 puffles
+Penguin 22 has entered with 35 puffles
+Penguin 23 has entered with 43 puffles
+Leaving 22 with 35 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 23:
+        Puffle 862
+        Puffle 865
+        Puffle 871
+        Puffle 873
+        Puffle 875
+        Puffle 876
+        Puffle 874
+        Puffle 870
+        Puffle 878
+        Puffle 869
+        Puffle 872
+        Puffle 877
+        Puffle 884
+        Puffle 881
+        Puffle 883
+        Puffle 888
+        Puffle 882
+        Puffle 889
+        Puffle 880
+        Puffle 885
+        Puffle 887
+        Puffle 886
+        Puffle 891
+        Puffle 897
+        Puffle 898
+        Puffle 895
+        Puffle 892
+        Puffle 896
+        Puffle 900
+        Puffle 899
+        Puffle 894
+        Puffle 893
+        Puffle 905
+        Puffle 907
+        Puffle 902
+        Puffle 908
+        Puffle 909
+        Puffle 904
+        Puffle 906
+        Puffle 910
+        Puffle 911
+        Puffle 903
+        Puffle 914
+    Total puffles: 43
+Leaving 23 with 43 puffles
+Penguin 29 has entered with 4 puffles
+Leaving 29 with 4 puffles
+Penguin 31 has entered with 17 puffles
+Penguin 28 has entered with 33 puffles
+Penguin 25 has entered with 41 puffles
+Penguin 26 has entered with 13 puffles
+Leaving 25 with 41 puffles
+Leaving 26 with 13 puffles
+Penguin 34 has entered with 29 puffles
+STATUS:
+    Total penguins: 3
+    Penguin 31:
+        Puffle 918
+        Puffle 922
+        Puffle 917
+        Puffle 920
+        Puffle 916
+        Puffle 933
+        Puffle 932
+        Puffle 924
+        Puffle 925
+        Puffle 928
+        Puffle 929
+        Puffle 927
+        Puffle 931
+        Puffle 926
+        Puffle 930
+        Puffle 938
+        Puffle 939
+    Penguin 28:
+        Puffle 936
+        Puffle 937
+        Puffle 944
+        Puffle 935
+        Puffle 943
+        Puffle 942
+        Puffle 940
+        Puffle 941
+        Puffle 951
+        Puffle 947
+        Puffle 952
+        Puffle 954
+        Puffle 949
+        Puffle 946
+        Puffle 948
+        Puffle 955
+        Puffle 953
+        Puffle 950
+        Puffle 957
+        Puffle 963
+        Puffle 960
+        Puffle 965
+        Puffle 958
+        Puffle 964
+        Puffle 961
+        Puffle 959
+        Puffle 966
+        Puffle 962
+        Puffle 969
+        Puffle 972
+        Puffle 977
+        Puffle 968
+        Puffle 970
+    Penguin 34:
+        Puffle 1032
+        Puffle 1036
+        Puffle 1043
+        Puffle 1041
+        Puffle 1038
+        Puffle 1037
+        Puffle 1039
+        Puffle 1034
+        Puffle 1040
+        Puffle 1035
+        Puffle 1042
+        Puffle 1053
+        Puffle 1052
+        Puffle 1050
+        Puffle 1048
+        Puffle 1054
+        Puffle 1045
+        Puffle 1049
+        Puffle 1046
+        Puffle 1047
+        Puffle 1051
+        Puffle 1064
+        Puffle 1061
+        Puffle 1065
+        Puffle 1060
+        Puffle 1059
+        Puffle 1063
+        Puffle 1062
+        Puffle 1056
+    Total puffles: 79
+Penguin 40 has entered with 21 puffles
+Leaving 31 with 17 puffles
+Leaving 34 with 29 puffles
+Leaving 40 with 21 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 28:
+        Puffle 936
+        Puffle 937
+        Puffle 944
+        Puffle 935
+        Puffle 943
+        Puffle 942
+        Puffle 940
+        Puffle 941
+        Puffle 951
+        Puffle 947
+        Puffle 952
+        Puffle 954
+        Puffle 949
+        Puffle 946
+        Puffle 948
+        Puffle 955
+        Puffle 953
+        Puffle 950
+        Puffle 957
+        Puffle 963
+        Puffle 960
+        Puffle 965
+        Puffle 958
+        Puffle 964
+        Puffle 961
+        Puffle 959
+        Puffle 966
+        Puffle 962
+        Puffle 969
+        Puffle 972
+        Puffle 977
+        Puffle 968
+        Puffle 970
+    Total puffles: 33
+Leaving 28 with 33 puffles
+Penguin 35 has entered with 23 puffles
+Leaving 35 with 23 puffles
+Penguin 37 has entered with 10 puffles
+Leaving 37 with 10 puffles
+Penguin 42 has entered with 0 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 42:
+        Does not have puffles
+    Total puffles: 0
+STATUS:
+    Total penguins: 1
+    Penguin 42:
+        Does not have puffles
+    Total puffles: 0
+STATUS:
+    Total penguins: 1
+    Penguin 42:
+        Does not have puffles
+    Total puffles: 0
+Penguin 33 has entered with 30 puffles
+Leaving 33 with 30 puffles
+Leaving 42 with 0 puffles
+Penguin 41 has entered with 16 puffles
+STATUS:
+    Total penguins: 1
+    Penguin 41:
+        Puffle 1159
+        Puffle 1157
+        Puffle 1162
+        Puffle 1164
+        Puffle 1155
+        Puffle 1163
+        Puffle 1156
+        Puffle 1160
+        Puffle 1171
+        Puffle 1175
+        Puffle 1169
+        Puffle 1174
+        Puffle 1170
+        Puffle 1168
+        Puffle 1173
+        Puffle 1172
+    Total puffles: 16
+Leaving 41 with 16 puffles
+Penguin 38 has entered with 1 puffles
+Penguin 39 has entered with 43 puffles
+Leaving 39 with 43 puffles
+Penguin 36 has entered with 40 puffles
+STATUS:
+    Total penguins: 2
+    Penguin 38:
+        Puffle 1167
+    Penguin 36:
+        Puffle 1223
+        Puffle 1226
+        Puffle 1221
+        Puffle 1229
+        Puffle 1224
+        Puffle 1225
+        Puffle 1228
+        Puffle 1230
+        Puffle 1238
+        Puffle 1235
+        Puffle 1241
+        Puffle 1232
+        Puffle 1233
+        Puffle 1237
+        Puffle 1236
+        Puffle 1239
+        Puffle 1234
+        Puffle 1240
+        Puffle 1246
+        Puffle 1249
+        Puffle 1250
+        Puffle 1251
+        Puffle 1252
+        Puffle 1248
+        Puffle 1247
+        Puffle 1243
+        Puffle 1245
+        Puffle 1244
+        Puffle 1260
+        Puffle 1256
+        Puffle 1255
+        Puffle 1254
+        Puffle 1262
+        Puffle 1257
+        Puffle 1263
+        Puffle 1258
+        Puffle 1259
+        Puffle 1261
+        Puffle 1273
+        Puffle 1268
+    Total puffles: 41
+Leaving 36 with 40 puffles
+Leaving 38 with 1 puffles
