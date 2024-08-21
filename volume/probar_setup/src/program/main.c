@@ -31,11 +31,10 @@ char* count_color(Store *store, char *color);
 char* runaway(Store *store, int pinguin_id, int puffle_id);
 char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color, int P);
 char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle_id1, int puffle_id2);
-char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, int n_limit);
-char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int end);
+char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, int n_limit, int P);
+char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int end, int P);
 
 #endif
-
 
 
 #include <stdio.h>
@@ -202,7 +201,7 @@ char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color,
             if (store->pinguins[i].num_puffles < P) {
                 store->pinguins[i].puffles = realloc(store->pinguins[i].puffles, (store->pinguins[i].num_puffles + 1) * sizeof(Puffle));
                 if (store->pinguins[i].puffles == NULL) {
-                    return strdup("Memory allocation failed\n");
+                    return strdup("Memory allocation failed\n"); // No deberia pasar
                 }
 
                 Puffle puffle;
@@ -218,7 +217,7 @@ char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color,
             }
         }
     }
-    return strdup("Penguin with ID not found\n");
+    return strdup("Penguin with ID not found\n"); // No deberia pasar
 }
 
 char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle_id1, int puffle_id2) {
@@ -261,7 +260,7 @@ char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle
     return strdup("Puffle or penguin not found for trading\n");
 }
 
-char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, int n_limit) {
+char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, int n_limit, int P) {
     int index_id1 = -1;
     int index_id2 = -1;
     int steal_count = 0;
@@ -276,46 +275,77 @@ char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, 
 
     for (int i = 0; i < store->pinguins[index_id2].num_puffles && steal_count < n_limit; i++) {
         if (strcmp(store->pinguins[index_id2].puffles[i].color, color) == 0) {
-            store->pinguins[index_id1].puffles = realloc(store->pinguins[index_id1].puffles,
-                                                         (store->pinguins[index_id1].num_puffles + 1) * sizeof(Puffle));
-            if (store->pinguins[index_id1].puffles == NULL) {
-                return strdup("Memory allocation failed\n");
+            if (store->pinguins[index_id1].num_puffles < P) {
+                store->pinguins[index_id1].puffles = realloc(store->pinguins[index_id1].puffles,
+                                                            (store->pinguins[index_id1].num_puffles + 1) * sizeof(Puffle));
+                if (store->pinguins[index_id1].puffles == NULL) {
+                    steal_count = -1;
+                    return strdup("Memory allocation failed\n");
+                }
+                
+                store->pinguins[index_id1].puffles[store->pinguins[index_id1].num_puffles++] = store->pinguins[index_id2].puffles[i];
+                extract_puffle_from_pinguin(&store->pinguins[index_id2], i);
+                steal_count++;
+                i--;
             }
-            store->pinguins[index_id1].puffles[store->pinguins[index_id1].num_puffles++] = store->pinguins[index_id2].puffles[i];
-            extract_puffle_from_pinguin(&store->pinguins[index_id2], i);
-            steal_count++;
-            i--;
         }
     }
 
-    if (steal_count > 0) {
+    if (steal_count >= 0) {
         char *message = malloc(100);
         snprintf(message, 100, "Steal %d from %d\n    Total stolen puffles: %d\n", pinguin_id1, pinguin_id2, steal_count);
         return message;
     }
-    return strdup("No puffles stolen\n");
 }
 
-char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int end) {
-    if (store->pinguins[pinguin_id1].num_puffles < end || start < 0 || end < start) {
-        return strdup("Error: Invalid start or end indices for puffle transfer.\n");
-    }
+char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int end, int P) {
+    int index_id1 = -1;
+    int index_id2 = -1;
 
-    for (int i = start; i <= end; i++) {
-        store->pinguins[pinguin_id2].puffles = realloc(store->pinguins[pinguin_id2].puffles,
-                                                       (store->pinguins[pinguin_id2].num_puffles + 1) * sizeof(Puffle));
-        if (store->pinguins[pinguin_id2].puffles == NULL) {
-            return strdup("Memory allocation failed\n");
+    for (int i = 0; i < store->num_pinguins; i++) {
+        if (store->pinguins[i].id == pinguin_id1) {
+            index_id1 = i;
+        } else if (store->pinguins[i].id == pinguin_id2) {
+            index_id2 = i;
         }
-        store->pinguins[pinguin_id2].puffles[store->pinguins[pinguin_id2].num_puffles++] = store->pinguins[pinguin_id1].puffles[i];
-        extract_puffle_from_pinguin(&store->pinguins[pinguin_id1], i);
-        i--;
     }
 
-    return strdup("Done\n");
+    if (store->pinguins[index_id1].num_puffles < end || start < 0 || end < start) {
+        return strdup("Error: Invalid start or end indices for puffle transfer.\n");
+    } // Esto no deberia pasar, pero por si acaso
+    int given_puffles = 0;
+    // printf("sss\n");
+    int num_tot_gift = end - start;
+    // printf("n: %d , ss %d, p: %d\n", num_tot_gift, store->pinguins[index_id2].num_puffles, P);
+    if (store->pinguins[index_id2].num_puffles + num_tot_gift < P) {
+        for (int i = start; i <= end; i++) {
+            // printf("sacando\n");
+            store->pinguins[index_id2].puffles = realloc(store->pinguins[index_id2].puffles,
+                                                        (store->pinguins[index_id2].num_puffles + 1) * sizeof(Puffle));
+            if (store->pinguins[index_id2].puffles == NULL) {
+                return strdup("Memory allocation failed\n"); // Tampoco deberia pasar
+            }
+            // printf("poni %d\n", index_id1);
+            store->pinguins[index_id2].puffles[store->pinguins[index_id2].num_puffles++] = store->pinguins[index_id1].puffles[i];
+            extract_puffle_from_pinguin(&store->pinguins[index_id1], i);
+            // printf("mem\n");
+            given_puffles++;
+            end--;
+            i--;
+            
+        }
+    }
+    if (given_puffles > 0) {
+        char *message = malloc(100);
+        snprintf(message, 100, "Gift from %d to %d\n    Total given away puffles: %d\n", pinguin_id1, pinguin_id2, given_puffles);
+        return message;
+    }
+    else {
+        char *message = malloc(100);
+        snprintf(message, 100, "Gift denied: %d would be full\n", pinguin_id2);
+        return message;
+    }
 }
-
-
 
 
 
@@ -426,14 +456,14 @@ int main(int argc, char **argv) {
       char color[32];
       int n_limit;
       fscanf(input_file, "%d %d %s %d", &pinguin_id1, &pinguin_id2, color, &n_limit);
-      output = steal_puffle(&store, pinguin_id1, pinguin_id2, color, n_limit);
-    } else if (string_equals(command, "GIVE-PUFFLE")) {
+      output = steal_puffle(&store, pinguin_id1, pinguin_id2, color, n_limit, P);
+    } else if (string_equals(command, "GIVE-PUFFLES")) {
       int pinguin_id1;
       int pinguin_id2;
       int start;
       int end; 
       fscanf(input_file, "%d %d %d %d", &pinguin_id1, &pinguin_id2, &start, &end);
-      output = give_puffle(&store, pinguin_id1, pinguin_id2, start, end);
+      output = give_puffle(&store, pinguin_id1, pinguin_id2, start, end, P);
     }
 
     if (output) {
