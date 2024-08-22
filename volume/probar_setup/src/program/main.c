@@ -37,9 +37,16 @@ char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int
 #endif
 
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+
+// La copie del main para usarla en las funciones
+static bool string_equals(char *string1, char *string2) {
+  return !strcmp(string1, string2);
+}
 
 // Función para liberar un pingüino
 void free_pinguin(Pinguin *pinguin) {
@@ -53,7 +60,7 @@ void free_pinguin(Pinguin *pinguin) {
 void free_store(Store *store) {
     if (store->pinguins != NULL) {
         for (int i = 0; i < store->num_pinguins; i++) {
-            free_pinguin(&store->pinguins[i]);
+            free_pinguin(&store->pinguins[i]); //Memoria de cada pinguin (puffles)
         }
         free(store->pinguins); // Liberar memoria de los pingüinos
         store->pinguins = NULL;
@@ -73,18 +80,19 @@ void extract_puffle_from_pinguin(Pinguin *pinguin, int puffle_index) {
 
 char* add_pinguin_to_store(Store *store, Pinguin pinguin) {
     if (store->num_pinguins >= store->K) {
-        free_pinguin(&pinguin); // Liberar memoria si no se puede añadir el pingüino
-        return strdup("Entry denied due to maximum capacity\n");
+        free_pinguin(&pinguin); // Liberar memoria si no se puede añadir el pingüino, por max de store
+        char *message = malloc(100);
+        snprintf(message, 100, "Entry denied due to maximum capacity\n");
+        return message;                                                 
     }
     store->pinguins = realloc(store->pinguins, (store->num_pinguins + 1) * sizeof(Pinguin));
-    if (store->pinguins == NULL) {
-        free_pinguin(&pinguin); // Liberar memoria del nuevo pingüino
-        return strdup("Memory allocation failed for new penguin\n");
-    }
     store->pinguins[store->num_pinguins++] = pinguin;
     
     char *message = malloc(100);
-    snprintf(message, 100, "Penguin %d has entered with %d puffles\n", pinguin.id, pinguin.num_puffles);
+    // El comando snprintf es para escribir una cadena en un buffer, en stack overflow me salio que era lo mejor para retornar los mensaje
+    // y asi en el main los introduzco al archivo output
+    // Ese comando lo vamos a usar en casi todas las funciones, ya que la mayoria retorna o trabaja con cadenas de texto, que son los mensajes que se van a ver en el output 
+    snprintf(message, 100, "Penguin %d has entered with %d puffles\n", pinguin.id, pinguin.num_puffles); // Creamos mensaje
     return message;
 }
 
@@ -102,7 +110,6 @@ char* remove_pinguin_from_store(Store *store, int pinguin_id) {
             return message;
         }
     }
-    return strdup("Penguin not found\n");
 }
 
 char* info_store(Store *store) {
@@ -110,7 +117,9 @@ char* info_store(Store *store) {
     size_t message_size = 1000;
     char *message = malloc(message_size);
 
-    size_t used = 0;
+    size_t used = 0; // Este es unico mensaje que puede ser en verdad largo, por lo que la mejor opcion que encontre fue esta
+                    // Todo se va uniendo al mensaje original, y el tamaño se va agrandando, y si en algun miunto supera el message_size, 
+                    //simplemente este se agranda, esto para no usar mas memoria de la necesaria, y poder hacer el alloc con el tamaño siempre correcto
     used += snprintf(message + used, message_size - used, "STATUS:\n    Total penguins: %d\n", store->num_pinguins);
 
     for (int i = 0; i < store->num_pinguins; i++) {
@@ -138,7 +147,7 @@ char* info_store(Store *store) {
 
         if (store->pinguins[i].num_puffles == 0) {
             const char *no_puffles_msg = "        Does not have puffles\n";
-            needed = strlen(no_puffles_msg);
+            needed = strlen(no_puffles_msg); // calculamos la longitud de los caracteres
             if (used + needed >= message_size) {
                 message_size *= 2;
                 message = realloc(message, message_size);
@@ -162,12 +171,11 @@ char* info_store(Store *store) {
     return message;
 }
 
-
 char* count_color(Store *store, char *color) {
     int count = 0;
     for (int i = 0; i < store->num_pinguins; i++) {
         for (int j = 0; j < store->pinguins[i].num_puffles; j++) {
-            if (strcmp(store->pinguins[i].puffles[j].color, color) == 0) {
+            if (string_equals(store->pinguins[i].puffles[j].color, color)) {
                 count++;
             }
         }
@@ -192,7 +200,6 @@ char* runaway(Store *store, int pinguin_id, int puffle_id) {
             }
         }
     }
-    return strdup("Puffle not found\n");
 }
 
 char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color, int P) {
@@ -200,9 +207,6 @@ char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color,
         if (store->pinguins[i].id == pinguin_id) {
             if (store->pinguins[i].num_puffles < P) {
                 store->pinguins[i].puffles = realloc(store->pinguins[i].puffles, (store->pinguins[i].num_puffles + 1) * sizeof(Puffle));
-                if (store->pinguins[i].puffles == NULL) {
-                    return strdup("Memory allocation failed\n"); // No deberia pasar
-                }
 
                 Puffle puffle;
                 puffle.id = puffle_id;
@@ -213,11 +217,12 @@ char* buy_puffle(Store *store, int pinguin_id, int puffle_id, const char *color,
                 snprintf(message, 100, "Penguin %d bought %d\n", pinguin_id, puffle_id);
                 return message;
             } else {
-                return strdup("Purchase denied\n");
+                char *message = malloc(100);
+                snprintf(message, 100, "Purchase denied\n");
+                return message;
             }
         }
     }
-    return strdup("Penguin with ID not found\n"); // No deberia pasar
 }
 
 char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle_id1, int puffle_id2) {
@@ -228,11 +233,11 @@ char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle
     int indexPinguin2 = -1;
     int indexPuffle2 = -1;
 
-    for (int i = 0; i < store->num_pinguins; i++) {
+    for (int i = 0; i < store->num_pinguins; i++) { // Se buscan los pinguins
         if (store->pinguins[i].id == pinguin_id1) {
             indexPinguin1 = i;
             for (int j = 0; j < store->pinguins[i].num_puffles; j++) {
-                if (store->pinguins[i].puffles[j].id == puffle_id1) {
+                if (store->pinguins[i].puffles[j].id == puffle_id1) { // Se buscan puffles
                     puffle1 = store->pinguins[i].puffles[j];
                     indexPuffle1 = j;
                     break;
@@ -241,7 +246,7 @@ char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle
         } else if (store->pinguins[i].id == pinguin_id2) {
             indexPinguin2 = i;
             for (int j = 0; j < store->pinguins[i].num_puffles; j++) {
-                if (store->pinguins[i].puffles[j].id == puffle_id2) {
+                if (store->pinguins[i].puffles[j].id == puffle_id2) {// Se buscan puffles
                     puffle2 = store->pinguins[i].puffles[j];
                     indexPuffle2 = j;
                     break;
@@ -250,14 +255,13 @@ char* trading_puffles(Store *store, int pinguin_id1, int pinguin_id2, int puffle
         }
     }
 
-    if (indexPinguin1 != -1 && indexPuffle1 != -1 && indexPinguin2 != -1 && indexPuffle2 != -1) {
+    if (indexPinguin1 != -1 && indexPuffle1 != -1 && indexPinguin2 != -1 && indexPuffle2 != -1) { // Se ve que esten todos los puffles y pinguinos
         store->pinguins[indexPinguin1].puffles[indexPuffle1] = puffle2;
         store->pinguins[indexPinguin2].puffles[indexPuffle2] = puffle1;
         char *message = malloc(100);
         snprintf(message, 100, "Exchange between %d and %d\n", pinguin_id1, pinguin_id2);
         return message;
     }
-    return strdup("Puffle or penguin not found for trading\n");
 }
 
 char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, int n_limit, int P) {
@@ -265,7 +269,7 @@ char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, 
     int index_id2 = -1;
     int steal_count = 0;
 
-    for (int i = 0; i < store->num_pinguins; i++) {
+    for (int i = 0; i < store->num_pinguins; i++) { // Se buscan los pinguins
         if (store->pinguins[i].id == pinguin_id1) {
             index_id1 = i;
         } else if (store->pinguins[i].id == pinguin_id2) {
@@ -274,15 +278,10 @@ char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, 
     }
 
     for (int i = 0; i < store->pinguins[index_id2].num_puffles && steal_count < n_limit; i++) {
-        if (strcmp(store->pinguins[index_id2].puffles[i].color, color) == 0) {
+        if (string_equals(store->pinguins[index_id2].puffles[i].color, color)) {
             if (store->pinguins[index_id1].num_puffles < P) {
                 store->pinguins[index_id1].puffles = realloc(store->pinguins[index_id1].puffles,
                                                             (store->pinguins[index_id1].num_puffles + 1) * sizeof(Puffle));
-                if (store->pinguins[index_id1].puffles == NULL) {
-                    steal_count = -1;
-                    return strdup("Memory allocation failed\n");
-                }
-                
                 store->pinguins[index_id1].puffles[store->pinguins[index_id1].num_puffles++] = store->pinguins[index_id2].puffles[i];
                 extract_puffle_from_pinguin(&store->pinguins[index_id2], i);
                 steal_count++;
@@ -291,7 +290,7 @@ char* steal_puffle(Store *store, int pinguin_id1, int pinguin_id2, char *color, 
         }
     }
 
-    if (steal_count >= 0) {
+    if (steal_count >= 0) { // Esto siempre se muestra, aunque sean 0 robados
         char *message = malloc(100);
         snprintf(message, 100, "Steal %d from %d\n    Total stolen puffles: %d\n", pinguin_id1, pinguin_id2, steal_count);
         return message;
@@ -309,38 +308,27 @@ char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int
             index_id2 = i;
         }
     }
-
-    if (store->pinguins[index_id1].num_puffles < end || start < 0 || end < start) {
-        return strdup("Error: Invalid start or end indices for puffle transfer.\n");
-    } // Esto no deberia pasar, pero por si acaso
     int given_puffles = 0;
-    // printf("sss\n");
-    int num_tot_gift = end - start;
-    // printf("n: %d , ss %d, p: %d\n", num_tot_gift, store->pinguins[index_id2].num_puffles, P);
+    int num_tot_gift = end - start; // Para ver cuantos hay que entregar
+
     if (store->pinguins[index_id2].num_puffles + num_tot_gift < P) {
         for (int i = start; i <= end; i++) {
-            // printf("sacando\n");
             store->pinguins[index_id2].puffles = realloc(store->pinguins[index_id2].puffles,
                                                         (store->pinguins[index_id2].num_puffles + 1) * sizeof(Puffle));
-            if (store->pinguins[index_id2].puffles == NULL) {
-                return strdup("Memory allocation failed\n"); // Tampoco deberia pasar
-            }
-            // printf("poni %d\n", index_id1);
             store->pinguins[index_id2].puffles[store->pinguins[index_id2].num_puffles++] = store->pinguins[index_id1].puffles[i];
             extract_puffle_from_pinguin(&store->pinguins[index_id1], i);
-            // printf("mem\n");
             given_puffles++;
             end--;
             i--;
             
         }
     }
-    if (given_puffles > 0) {
+    if (given_puffles > 0) { // Mensaje cuando se envia alguno
         char *message = malloc(100);
         snprintf(message, 100, "Gift from %d to %d\n    Total given away puffles: %d\n", pinguin_id1, pinguin_id2, given_puffles);
         return message;
     }
-    else {
+    else { // Si no se pueden mandar los gifts
         char *message = malloc(100);
         snprintf(message, 100, "Gift denied: %d would be full\n", pinguin_id2);
         return message;
@@ -356,10 +344,6 @@ char* give_puffle(Store *store, int pinguin_id1, int pinguin_id2, int start, int
 #include <stdlib.h>
 #include <string.h>
 
-/* Retorna true si ambos strings son iguales */
-static bool string_equals(char *string1, char *string2) {
-  return !strcmp(string1, string2);
-}
 
 static bool check_arguments(int argc, char **argv) {
   if (argc != 3) {
@@ -419,8 +403,8 @@ int main(int argc, char **argv) {
         char color[32];
         fscanf(input_file, "%d %s", &puffle_id, color);
         pinguin.puffles[j].id = puffle_id;
-        strcpy(pinguin.puffles[j].color, color);
-      }
+        strcpy(pinguin.puffles[j].color, color); // Nose porque aveces no me dejaba hacer el string_equals
+      }                                          // en los colores, por lo que esto me salio que use en stack overflow
       output = add_pinguin_to_store(&store, pinguin);
     } else if (string_equals(command, "LEAVE")) {
       int id;
@@ -467,8 +451,8 @@ int main(int argc, char **argv) {
     }
 
     if (output) {
-      fprintf(output_file, "%s", output); // Escribimos los mensajes en el archivo
-      free(output);  // Liberar la memoria del mensaje
+      fprintf(output_file, "%s", output); // Escribir todos los mensajes en el archivo
+      free(output);  // Liberamos la memoria del mensaje
     }
   }
   
@@ -477,7 +461,7 @@ int main(int argc, char **argv) {
   fclose(output_file);
 
   /* Liberamos memoria */
-  free_store(&store);
+  free_store(&store); // Solo falta store
 
   return 0;
 }
