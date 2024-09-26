@@ -1,0 +1,48 @@
+Festival Stats
+	Place 0 has 3 penguin[s]
+		36 2 1
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 3 penguin[s]
+		36 2 1
+	Place 1 has 3 penguin[s]
+		47 3 4
+Penguin 1 leaving sector 0
+Penguin 7 leaving sector 1
+Festival Stats
+	Place 0 has 3 penguin[s]
+		36 2 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 5 penguin[s]
+		78 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 5 penguin[s]
+		78 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 5 penguin[s]
+		78 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 5 penguin[s]
+		78 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 6 penguin[s]
+		59 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Festival Stats
+	Place 0 has 6 penguin[s]
+		59 9 6
+	Place 1 has 3 penguin[s]
+		47 3 4
+Penguin 13 leaving sector 0

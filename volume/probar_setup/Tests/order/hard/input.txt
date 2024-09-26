@@ -1,0 +1,1001 @@
+1000
+ENTER 1 13 1
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY membership asc
+SORT-BY age desc
+ENTER 9 54 0
+ENTER 2 19 0
+SORT-BY age asc
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age asc
+LEAVE 1
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 9
+SORT-BY age asc
+ENTER 7 69 1
+ENTER 0 98 1
+SORT-BY membership desc
+ENTER 4 22 0
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age asc
+ENTER 3 67 1
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY age desc
+ENTER 5 42 1
+ENTER 8 51 1
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 6 7 1
+ENTER 12 85 0
+SORT-BY age desc
+ENTER 19 25 1
+SORT-BY membership asc
+ENTER 15 77 0
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY membership desc
+ENTER 16 82 1
+SORT-BY membership asc
+LEAVE 5
+ENTER 13 96 1
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 16
+ENTER 14 38 0
+SORT-BY age asc
+ENTER 11 57 1
+SORT-BY age asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY age asc
+ENTER 18 81 1
+ENTER 20 15 0
+SORT-BY age asc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership desc
+ENTER 17 59 1
+SORT-BY age desc
+ENTER 22 77 1
+DOUBLE-SORT-BY membership asc age asc
+ENTER 26 14 1
+SORT-BY membership desc
+SORT-BY membership asc
+ENTER 28 60 1
+ENTER 25 61 0
+SORT-BY membership asc
+SORT-BY membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 27 95 1
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 23 4 0
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership desc
+ENTER 29 10 0
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age desc
+ENTER 24 42 1
+SORT-BY membership asc
+SORT-BY age asc
+LEAVE 29
+DOUBLE-SORT-BY membership asc age desc
+ENTER 31 54 0
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY age asc
+ENTER 30 2 0
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age desc
+SORT-BY age asc
+ENTER 35 85 0
+ENTER 41 64 1
+SORT-BY membership desc
+LEAVE 0
+SORT-BY age asc
+ENTER 37 24 1
+ENTER 42 4 1
+ENTER 38 24 1
+ENTER 39 4 0
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY age asc
+ENTER 40 46 0
+ENTER 36 71 0
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership asc
+SORT-BY age desc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 33 90 1
+LEAVE 7
+SORT-BY age asc
+LEAVE 37
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY membership asc
+ENTER 34 91 0
+ENTER 46 86 0
+LEAVE 12
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership desc age asc
+LEAVE 23
+DOUBLE-SORT-BY age asc membership asc
+ENTER 49 48 1
+ENTER 48 82 1
+ENTER 47 31 1
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY age asc
+LEAVE 22
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 11
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership asc age asc
+LEAVE 6
+DOUBLE-SORT-BY membership desc age desc
+ENTER 53 57 1
+LEAVE 36
+ENTER 44 96 1
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 52 92 1
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 45 49 1
+ENTER 51 38 0
+SORT-BY membership asc
+SORT-BY membership desc
+ENTER 50 52 0
+ENTER 57 20 0
+ENTER 55 63 1
+SORT-BY age desc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age desc
+ENTER 56 84 0
+ENTER 61 78 0
+ENTER 59 39 0
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership desc
+LEAVE 45
+ENTER 62 30 0
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 20
+ENTER 64 37 0
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 58 68 0
+DOUBLE-SORT-BY age asc membership desc
+LEAVE 28
+ENTER 63 37 0
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 60 73 1
+ENTER 66 94 1
+LEAVE 44
+ENTER 70 19 1
+DOUBLE-SORT-BY membership desc age asc
+ENTER 75 81 1
+ENTER 74 62 0
+SORT-BY age asc
+SORT-BY membership asc
+ENTER 68 11 0
+ENTER 67 66 0
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 72 10 0
+DOUBLE-SORT-BY membership desc age desc
+ENTER 73 95 0
+SORT-BY membership asc
+LEAVE 58
+ENTER 71 91 0
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 48
+DOUBLE-SORT-BY age desc membership asc
+ENTER 69 46 1
+LEAVE 63
+ENTER 85 77 0
+LEAVE 17
+SORT-BY membership desc
+ENTER 77 9 1
+LEAVE 27
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY age desc
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 3
+LEAVE 15
+ENTER 86 77 0
+LEAVE 2
+SORT-BY age asc
+ENTER 78 73 0
+SORT-BY age desc
+ENTER 81 13 0
+ENTER 83 28 1
+ENTER 80 54 1
+ENTER 79 62 0
+SORT-BY age desc
+ENTER 84 94 1
+ENTER 82 88 0
+ENTER 96 85 0
+DOUBLE-SORT-BY age desc membership desc
+ENTER 89 31 1
+SORT-BY age asc
+ENTER 91 6 0
+ENTER 97 44 0
+ENTER 93 55 0
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 74
+LEAVE 93
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 88 2 0
+SORT-BY membership asc
+SORT-BY membership desc
+SORT-BY age asc
+ENTER 92 21 0
+SORT-BY age asc
+ENTER 95 72 1
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership asc
+LEAVE 69
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 94 24 1
+SORT-BY age desc
+LEAVE 52
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 90 37 0
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age asc
+SORT-BY membership asc
+ENTER 100 37 0
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 62
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age desc
+ENTER 105 89 1
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 99 41 1
+LEAVE 73
+LEAVE 46
+ENTER 104 63 0
+DOUBLE-SORT-BY membership desc age asc
+ENTER 103 16 0
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY membership asc
+ENTER 106 74 1
+SORT-BY age asc
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 101 30 0
+SORT-BY age desc
+ENTER 107 33 0
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY membership desc
+ENTER 102 63 0
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership asc
+ENTER 108 66 0
+SORT-BY membership asc
+ENTER 115 46 0
+DOUBLE-SORT-BY age desc membership desc
+ENTER 112 45 0
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age asc
+LEAVE 104
+SORT-BY membership desc
+ENTER 110 44 0
+SORT-BY membership desc
+ENTER 117 97 0
+SORT-BY membership asc
+ENTER 114 32 1
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age asc
+ENTER 119 29 0
+SORT-BY membership asc
+ENTER 111 2 0
+ENTER 113 41 1
+ENTER 118 19 1
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 116 74 0
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age desc
+SORT-BY age desc
+ENTER 126 4 1
+SORT-BY age desc
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY membership asc
+SORT-BY age asc
+ENTER 128 98 1
+ENTER 124 1 1
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 129 93 1
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 122 28 0
+SORT-BY age desc
+LEAVE 41
+LEAVE 119
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 127 34 0
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY membership asc
+SORT-BY membership desc
+SORT-BY membership asc
+ENTER 130 77 1
+ENTER 121 62 1
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 125 34 1
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 123 85 0
+DOUBLE-SORT-BY membership desc age desc
+ENTER 139 29 1
+DOUBLE-SORT-BY age desc membership desc
+ENTER 138 21 1
+ENTER 140 26 1
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 140
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 137 32 1
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 92
+SORT-BY membership desc
+LEAVE 56
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 136 63 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 134 38 0
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY membership asc
+ENTER 133 31 1
+SORT-BY age desc
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY age asc
+DOUBLE-SORT-BY membership asc age asc
+ENTER 135 89 1
+ENTER 132 10 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 141 11 1
+ENTER 146 19 1
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 139
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age desc
+SORT-BY membership asc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership desc
+LEAVE 138
+SORT-BY age desc
+ENTER 144 45 0
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership asc age asc
+ENTER 151 67 1
+ENTER 149 69 0
+ENTER 143 15 0
+ENTER 147 6 1
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY age asc
+ENTER 150 80 0
+SORT-BY age desc
+SORT-BY membership asc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership asc
+ENTER 145 52 1
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership desc
+LEAVE 147
+ENTER 148 37 0
+ENTER 152 52 1
+ENTER 157 21 0
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 132
+SORT-BY age desc
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 146
+SORT-BY age asc
+ENTER 155 71 0
+ENTER 160 79 1
+ENTER 161 82 0
+LEAVE 152
+ENTER 154 22 1
+DOUBLE-SORT-BY age desc membership desc
+ENTER 156 88 0
+SORT-BY membership asc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 162 58 0
+ENTER 159 32 1
+ENTER 163 98 1
+ENTER 158 5 1
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 168 79 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 174 41 0
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 70
+DOUBLE-SORT-BY age desc membership asc
+ENTER 170 35 1
+ENTER 172 89 1
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 173 19 1
+ENTER 167 91 0
+ENTER 169 9 0
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY age desc
+ENTER 171 59 0
+ENTER 166 28 0
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 161
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age asc
+SORT-BY age asc
+ENTER 165 59 0
+LEAVE 57
+SORT-BY membership asc
+LEAVE 85
+ENTER 181 25 1
+SORT-BY age asc
+ENTER 183 33 1
+ENTER 185 92 0
+SORT-BY membership asc
+ENTER 179 60 0
+ENTER 176 27 1
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 177 85 0
+ENTER 178 62 1
+ENTER 184 10 1
+ENTER 182 26 0
+SORT-BY age desc
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership desc
+SORT-BY membership desc
+ENTER 180 93 1
+SORT-BY membership desc
+SORT-BY membership asc
+ENTER 189 89 0
+ENTER 194 67 1
+ENTER 192 85 0
+ENTER 193 56 1
+SORT-BY age desc
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 116
+LEAVE 91
+DOUBLE-SORT-BY age asc membership desc
+ENTER 190 53 1
+ENTER 196 24 1
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+LEAVE 178
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY age asc
+ENTER 191 78 0
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age desc membership desc
+ENTER 195 51 1
+DOUBLE-SORT-BY age asc membership asc
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY membership asc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership asc
+ENTER 188 72 1
+DOUBLE-SORT-BY age asc membership asc
+ENTER 187 37 1
+ENTER 206 80 1
+ENTER 203 7 0
+ENTER 207 51 0
+SORT-BY membership desc
+ENTER 205 3 1
+SORT-BY age desc
+LEAVE 190
+ENTER 200 0 1
+DOUBLE-SORT-BY membership desc age asc
+LEAVE 124
+DOUBLE-SORT-BY age asc membership asc
+ENTER 204 23 0
+SORT-BY age asc
+ENTER 202 32 0
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 199 91 0
+ENTER 198 83 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 201 99 1
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY membership asc age asc
+ENTER 210 7 0
+SORT-BY membership asc
+ENTER 211 65 0
+ENTER 213 32 0
+ENTER 209 18 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 216 60 1
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 217 93 1
+DOUBLE-SORT-BY membership asc age desc
+ENTER 212 64 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 214 53 1
+ENTER 218 61 1
+ENTER 215 59 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 225 73 1
+LEAVE 51
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 220 23 0
+LEAVE 166
+ENTER 221 74 0
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 223 12 0
+SORT-BY age desc
+LEAVE 217
+ENTER 224 58 1
+DOUBLE-SORT-BY age desc membership desc
+ENTER 229 83 0
+SORT-BY membership desc
+DOUBLE-SORT-BY membership desc age desc
+LEAVE 35
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age asc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 227 46 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 222 60 1
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 228 85 1
+SORT-BY membership asc
+ENTER 226 5 0
+SORT-BY membership desc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership asc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 239 8 1
+SORT-BY membership desc
+SORT-BY membership asc
+ENTER 233 66 0
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership asc
+ENTER 236 78 0
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 169
+ENTER 235 33 1
+SORT-BY membership desc
+SORT-BY membership asc
+SORT-BY age asc
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 177
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY membership asc age desc
+SORT-BY membership desc
+ENTER 237 92 1
+SORT-BY age desc
+ENTER 231 78 0
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 79
+SORT-BY age desc
+SORT-BY membership asc
+LEAVE 101
+SORT-BY membership asc
+DOUBLE-SORT-BY age desc membership desc
+ENTER 240 96 1
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership asc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership asc age asc
+ENTER 238 85 1
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 234 38 1
+SORT-BY membership desc
+ENTER 232 60 0
+SORT-BY membership desc
+ENTER 247 50 0
+SORT-BY age asc
+ENTER 242 27 0
+ENTER 245 13 0
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 83
+ENTER 250 39 0
+SORT-BY membership desc
+LEAVE 222
+ENTER 246 51 0
+DOUBLE-SORT-BY age desc membership asc
+ENTER 244 47 1
+ENTER 248 89 0
+SORT-BY membership asc
+ENTER 243 15 1
+DOUBLE-SORT-BY membership asc age asc
+ENTER 251 73 1
+SORT-BY membership asc
+LEAVE 128
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 249 63 1
+SORT-BY membership desc
+SORT-BY age asc
+ENTER 255 76 0
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age asc
+ENTER 258 16 1
+ENTER 257 7 1
+ENTER 256 81 1
+ENTER 262 17 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 261 91 0
+ENTER 260 78 1
+DOUBLE-SORT-BY membership asc age desc
+LEAVE 215
+ENTER 253 72 1
+SORT-BY age desc
+LEAVE 47
+SORT-BY membership desc
+LEAVE 127
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY membership asc age asc
+ENTER 259 44 1
+ENTER 254 63 1
+ENTER 270 70 0
+ENTER 264 43 1
+LEAVE 198
+SORT-BY membership desc
+ENTER 268 55 1
+SORT-BY membership asc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership asc
+SORT-BY age desc
+SORT-BY age asc
+ENTER 271 27 0
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age desc membership desc
+ENTER 267 59 0
+ENTER 273 78 0
+SORT-BY membership desc
+ENTER 266 17 0
+ENTER 265 31 1
+SORT-BY membership desc
+LEAVE 211
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 202
+LEAVE 86
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age desc membership asc
+LEAVE 49
+ENTER 269 60 1
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 160
+SORT-BY age desc
+SORT-BY membership desc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY membership desc
+ENTER 272 47 0
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age asc
+LEAVE 157
+LEAVE 96
+ENTER 276 78 0
+DOUBLE-SORT-BY age asc membership asc
+ENTER 280 65 1
+SORT-BY membership desc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 279 51 1
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership asc
+SORT-BY membership desc
+SORT-BY membership desc
+SORT-BY age desc
+ENTER 278 83 1
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 275 70 1
+SORT-BY age asc
+SORT-BY age asc
+SORT-BY age desc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership desc
+ENTER 277 98 1
+DOUBLE-SORT-BY age desc membership asc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age asc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 283 5 0
+ENTER 282 29 0
+ENTER 284 29 0
+DOUBLE-SORT-BY age desc membership asc
+SORT-BY age desc
+LEAVE 135
+LEAVE 173
+SORT-BY age desc
+LEAVE 267
+ENTER 281 26 1
+ENTER 287 71 1
+DOUBLE-SORT-BY membership desc age asc
+ENTER 288 81 0
+LEAVE 183
+SORT-BY membership asc
+SORT-BY membership asc
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age desc
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age asc
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY age asc membership desc
+LEAVE 112
+ENTER 295 35 1
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY membership asc
+LEAVE 156
+DOUBLE-SORT-BY age asc membership desc
+SORT-BY age asc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 293 89 0
+SORT-BY membership asc
+ENTER 289 8 0
+SORT-BY membership asc
+ENTER 292 26 1
+DOUBLE-SORT-BY age desc membership asc
+ENTER 290 18 0
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY membership asc
+SORT-BY age desc
+SORT-BY membership desc
+SORT-BY membership desc
+ENTER 294 6 1
+DOUBLE-SORT-BY age desc membership desc
+ENTER 286 99 1
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership asc
+ENTER 291 55 0
+ENTER 302 89 1
+SORT-BY age desc
+ENTER 300 56 0
+DOUBLE-SORT-BY age desc membership desc
+SORT-BY age asc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age desc
+ENTER 299 90 1
+ENTER 303 25 0
+DOUBLE-SORT-BY membership desc age desc
+ENTER 297 73 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership asc age desc
+ENTER 305 92 0
+ENTER 306 40 1
+LEAVE 78
+ENTER 304 41 0
+ENTER 301 28 1
+DOUBLE-SORT-BY membership asc age asc
+ENTER 298 76 1
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership asc
+ENTER 308 70 1
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 316 20 1
+DOUBLE-SORT-BY membership asc age asc
+ENTER 313 26 0
+DOUBLE-SORT-BY membership desc age desc
+SORT-BY age desc
+SORT-BY age asc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 317 64 0
+ENTER 310 0 1
+ENTER 315 58 0
+SORT-BY age desc
+SORT-BY membership asc
+ENTER 314 91 0
+ENTER 309 76 1
+DOUBLE-SORT-BY membership desc age desc
+ENTER 311 5 0
+ENTER 312 57 1
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY membership desc
+DOUBLE-SORT-BY membership desc age desc
+ENTER 326 8 0
+SORT-BY age desc
+SORT-BY membership desc
+ENTER 325 94 1
+LEAVE 121
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 210
+ENTER 321 2 1
+DOUBLE-SORT-BY age asc membership desc
+ENTER 322 8 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY age asc membership desc
+ENTER 320 34 0
+ENTER 324 32 1
+ENTER 328 58 1
+DOUBLE-SORT-BY age desc membership desc
+ENTER 323 27 0
+DOUBLE-SORT-BY membership asc age desc
+DOUBLE-SORT-BY age asc membership desc
+LEAVE 272
+ENTER 319 30 1
+DOUBLE-SORT-BY age desc membership asc
+ENTER 327 16 0
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY membership desc
+DOUBLE-SORT-BY membership asc age asc
+SORT-BY age asc
+SORT-BY age desc
+SORT-BY membership desc
+LEAVE 259
+DOUBLE-SORT-BY membership desc age asc
+SORT-BY age asc
+SORT-BY membership asc
+LEAVE 117
+SORT-BY age desc
+ENTER 335 85 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY membership desc age desc
+DOUBLE-SORT-BY age desc membership asc
+ENTER 338 16 1
+LEAVE 276
+SORT-BY age asc
+ENTER 337 72 1
+SORT-BY age desc
+SORT-BY age desc
+DOUBLE-SORT-BY age desc membership desc
+LEAVE 64
+LEAVE 254
+DOUBLE-SORT-BY membership desc age desc
+ENTER 332 4 0
+SORT-BY membership desc
+ENTER 331 74 1
+LEAVE 281
+DOUBLE-SORT-BY age desc membership desc
+ENTER 334 36 0
+ENTER 339 81 0
+SORT-BY membership asc
+DOUBLE-SORT-BY age asc membership asc
+LEAVE 290
+ENTER 333 7 0
+DOUBLE-SORT-BY age desc membership desc
+DOUBLE-SORT-BY age asc membership desc
+DOUBLE-SORT-BY age asc membership asc
+SORT-BY age asc
+SORT-BY age desc
+SORT-BY age desc
+DOUBLE-SORT-BY membership asc age asc
+DOUBLE-SORT-BY membership desc age asc
+ENTER 336 90 0
+SORT-BY membership asc
+ENTER 330 69 0
+SORT-BY age asc
+ENTER 349 73 0
+SORT-BY membership asc
+LEAVE 13
+SORT-BY age desc
+LEAVE 316
+LEAVE 331
+DOUBLE-SORT-BY age asc membership asc
+ENTER 346 6 1
+ENTER 341 37 1

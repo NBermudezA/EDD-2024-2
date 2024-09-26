@@ -1,0 +1,23 @@
+Penguin 7 with age 29 has entered
+Penguin 7 has left
+Penguin 8 with age 90 has entered
+Penguin 5 with age 88 has entered
+Penguin 6 with age 59 has entered
+Penguin 0 with age 31 has entered
+Penguins sorted by age, membership in desc, asc order:
+8, 5, 6, 0
+Penguin 1 with age 77 has entered
+Penguin 6 has left
+Penguin 5 has left
+Penguin 3 with age 96 has entered
+Penguin 2 with age 4 has entered
+Penguins sorted by age, membership in asc, desc order:
+2, 0, 1, 8, 3
+Penguin 1 has left
+Penguin 8 has left
+Penguin 3 has left
+Penguin 4 with age 35 has entered
+Penguins sorted by age, membership in asc, asc order:
+2, 0, 4
+Penguin 9 with age 14 has entered
+Penguin 0 has left
