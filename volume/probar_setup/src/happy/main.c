@@ -6,6 +6,7 @@
 typedef struct {
     int id;
     int happiness;
+    int sector_id;
 } Penguin;
 
 typedef struct {
@@ -17,7 +18,7 @@ typedef struct {
     Penguin *minHeapMedian; // Heap para la mitad inferior de la mediana
     Penguin *maxHeapMedian; // Heap para la mitad superior de la mediana
     Penguin *minHeap;       // Heap que contiene el menor pingüino
-    Penguin *maxHeap;
+    Penguin *maxHeap;       // Heap que contiene el mayor pingüino
 } Sector;
 
 
@@ -29,27 +30,35 @@ typedef struct {
 } Festival;
 
 
-// Declaraciones de funciones
+//Funciones extras
 void init_festival(Festival *festival, int num_sectors, int *capacities);
 void free_festival(Festival *festival);
 void shift_up_min_heap(Penguin *heap, int index);
 void shift_up_max_heap(Penguin *heap, int index);
-void shift_down_min_heap(Penguin *heap, int index, int n); // Declaración añadida
-void shift_down_max_heap(Penguin *heap, int index, int n); // Declaración añadida
+void shift_down_min_heap(Penguin *heap, int index, int n); 
+void shift_down_max_heap(Penguin *heap, int index, int n); 
+void shift_down_big_heap(Penguin *bigHeap, int big_heap_index, int bigHeapSize);
+void remove_penguin_from_heaps(Festival *festival, Sector *sector, int penguin_id, int happiness);
 
 
-// Funciones de eventos
+
+// Funciones de eventos parte 1
 void add_penguin(Sector *sector, int penguin_id, int happiness);
 void add_penguin_festival(Festival *festival, int penguin_id,int happiness, int sector_id);
 char* increase_happines(Sector *sector, int penguin_id, int happiness_increase);
 char* festival_details(Festival *festival);
 char* Leave(Festival *festival);
-//char* Leave(Festival *festival);
+char* Medians(Festival *festival);
 
 #endif
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+static bool string_equals(const char *string1, char *string2) {
+  return !strcmp(string1, string2);
+}
 
 void free_festival(Festival *festival) {
     for (int i = 0; i < festival->num_sectors; i++) {
@@ -57,8 +66,6 @@ void free_festival(Festival *festival) {
         free(festival->sectors[i].maxHeapMedian);
         free(festival->sectors[i].minHeap);
         free(festival->sectors[i].maxHeap);
-        
-        //free(festival->sectors[i].happiest_penguin);
     }
     free(festival->bigHeap);
     free(festival->sectors);
@@ -67,9 +74,6 @@ void free_festival(Festival *festival) {
 void init_festival(Festival *festival, int num_sectors, int *capacities) {
     festival->num_sectors = num_sectors;
     festival->sectors = malloc(num_sectors * sizeof(Sector));
-
-    // Inicializar el bigHeap
-    
     int capacidad_big_heap = 0;
     for (int i = 0; i < num_sectors; i++) {
         festival->sectors[i].id = i;
@@ -83,14 +87,19 @@ void init_festival(Festival *festival, int num_sectors, int *capacities) {
         festival->sectors[i].maxHeap = malloc(capacities[i] * sizeof(Penguin));
         capacidad_big_heap = capacidad_big_heap + capacities[i];
     }
-    festival->bigHeap = malloc(num_sectors * sizeof(Penguin) * capacidad_big_heap); 
+    festival->bigHeap = malloc(sizeof(Penguin) * capacidad_big_heap); 
     festival->bigHeapSize = 0;
+    // acá inicializamos todas las cosas
 }
 
 void print_heap(Penguin *heap, int size, const char *heapName, int sector_id) {
     printf("heap:%s - from: %d: ", heapName, sector_id);
+    if (size == 0) {
+        printf("heap:%s - from: %d: (empty)\n", heapName, sector_id);
+        return;
+    }
     for (int i = 0; i < size; i++) {
-        if (heapName == "Bigheap After"){
+        if (string_equals(heapName, "Bigheap After")) {
             printf("(%d, %d, %d) ", heap[i].id, heap[i].happiness, sector_id);
         }
         else {
@@ -99,21 +108,21 @@ void print_heap(Penguin *heap, int size, const char *heapName, int sector_id) {
         
     }
     printf("\n");
+    //Funcion para ir viendo como se ven los heaps
 }
 
+
+// Funciones de shift para mover los pinguinos a lo largo de los heaps
+// Todas muy parecidas, todas las que son up son sacadas de las clases, las down las tuve que modificar un poco
 void shift_up_min_heap(Penguin *heap, int index) {
     if (index == 0) return; // Si es el nodo raíz, no tiene padre
-
     int parentIndex = (index - 1) / 2;
-
     if (heap[parentIndex].happiness < heap[index].happiness || 
         (heap[parentIndex].happiness == heap[index].happiness && heap[parentIndex].id < heap[index].id)) {
         // Intercambiar el padre con el hijo
         Penguin temp = heap[parentIndex];
         heap[parentIndex] = heap[index];
         heap[index] = temp;
-
-        // Llamar recursivamente para ajustar el padre
         shift_up_min_heap(heap, parentIndex);
     }
 }
@@ -125,34 +134,26 @@ void shift_up_max_heap(Penguin *heap, int index) {
 
     if ((heap[parentIndex].happiness > heap[index].happiness || 
         (heap[parentIndex].happiness == heap[index].happiness && heap[parentIndex].id > heap[index].id)) && heap[index].happiness > 0) {
-        // Intercambiar el padre con el hijo
         Penguin temp = heap[parentIndex];
         heap[parentIndex] = heap[index];
         heap[index] = temp;
-
-        // Llamar recursivamente para ajustar el padre
         shift_up_max_heap(heap, parentIndex);
     }
 }
 
 void shift_up_big_heap(Penguin *bigHeap, int index) {
     if (index == 0) return; // Si es el nodo raíz, no tiene padre
-
     int parentIndex = (index - 1) / 2;
-
-    // Ajuste por felicidad y por id en caso de empate
     if (bigHeap[parentIndex].happiness > bigHeap[index].happiness || 
         (bigHeap[parentIndex].happiness == bigHeap[index].happiness && bigHeap[parentIndex].id > bigHeap[index].id)) {
         Penguin temp = bigHeap[parentIndex];
         bigHeap[parentIndex] = bigHeap[index];
         bigHeap[index] = temp;
-
-        // Llamar recursivamente para ajustar el padre
         shift_up_big_heap(bigHeap, parentIndex);
     }
 }
 
-void shift_down_all_heap(Penguin *heap, int index, int n) {
+void shift_down_big_heap(Penguin *heap, int index, int n) {
     int smallest = index;
     int left = 2 * index + 1;
     int right = 2 * index + 2;
@@ -167,7 +168,7 @@ void shift_down_all_heap(Penguin *heap, int index, int n) {
         Penguin temp = heap[index];
         heap[index] = heap[smallest];
         heap[smallest] = temp;
-        shift_down_all_heap(heap, smallest, n);
+        shift_down_big_heap(heap, smallest, n);
     }
 }
 
@@ -176,7 +177,6 @@ void shift_down_min_heap(Penguin *heap, int index, int n) {
     int left = 2 * index + 1;
     int right = 2 * index + 2;
 
-    // Ignorar (-1, 0) en las comparaciones
     if (left < n && (heap[left].happiness >= 0) && (heap[left].happiness < heap[smallest].happiness)) {
         smallest = left;
     }
@@ -195,8 +195,6 @@ void shift_down_max_heap(Penguin *heap, int index, int n) {
     int largest = index;
     int left = 2 * index + 1;
     int right = 2 * index + 2;
-
-    // Ignorar (-1, 0) en las comparaciones
     if (left < n && (heap[left].happiness >= 0) && (heap[left].happiness > heap[largest].happiness)) {
         largest = left;
     }
@@ -211,115 +209,8 @@ void shift_down_max_heap(Penguin *heap, int index, int n) {
     }
 }
 
-
-//Falta hacer conteo de ping en heaps, y si estan los dos heaps con los mismos se deberia meter al max, pero antes 
-//se compara con el mayor del min ya que sino se pone en su lugar y ese se va al max y luego reordenar
-
-void add_penguin_festival(Festival *festival, int penguin_id, int happiness, int sector_id) {
-   
-    // Agregar el nuevo pingüino al final del bigHeap
-    Penguin newPenguin = {penguin_id, happiness, sector_id};
-    festival->bigHeap[festival->bigHeapSize] = newPenguin; // Usar festival->bigHeap
-    festival->bigHeapSize++; // Incrementar el tamaño del bigHeap
-
-    // Ajustar el bigHeap para mantener la propiedad del heap
-    shift_up_big_heap(festival->bigHeap, festival->bigHeapSize - 1);
-    print_heap(festival->bigHeap, festival->bigHeapSize, "Bigheap After", sector_id);
-}
-
-void add_penguin(Sector *sector, int penguin_id, int happiness) {
-    if (sector->num_penguins >= sector->capacity) {
-        printf("Sector %d lleno\n", sector->id);
-        return;
-    }
-    int entro = 0;
-    Penguin newPenguin = {penguin_id, happiness};
-
-    if (sector->num_maxheap == 0 && entro == 0) {
-        sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
-        shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
-        sector->num_maxheap++;
-        entro++;
-    } else if (sector->num_penguins == 1 && entro == 0) {
-        sector->minHeapMedian[sector->num_minheap] = newPenguin;
-        shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
-        sector->num_minheap++;
-        printf("\n\nprimer  %d\n\n\n",  sector->num_minheap);
-        entro++;
-    }
-    // Agregar al maxHeapMedian o minHeapMedian
-    if (sector->num_maxheap == sector->num_minheap && entro == 0) {
-        if (happiness < sector->minHeapMedian[0].happiness) {
-            // Agregar a minHeapMedian
-            sector->minHeapMedian[sector->num_minheap] = newPenguin;
-            shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
-            sector->num_minheap++;
-        } else {
-            // Agregar a maxHeapMedian
-            sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
-            shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
-            sector->num_maxheap++;
-        }
-    }
-    else if ((sector->num_maxheap > 0 && happiness >= sector->maxHeapMedian[0].happiness) && entro == 0) {
-        // Agregar a maxHeapMedian
-        printf("\n\nkokokokokokk\n\n");
-        //if (sector->num_maxheap == sector->num_minheap && )
-        sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
-        shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
-        sector->num_maxheap++;
-        entro++;
-
-    } else {
-        // Agregar a minHeapMedian
-        if(sector->num_maxheap != 0 && entro == 0){
-            printf("\n\nssss\n\n");
-            sector->minHeapMedian[sector->num_minheap] = newPenguin;
-            shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
-            sector->num_minheap++;
-            entro++;
-        }
-    }
-
-    // Agregar al heap de todos los pingüinos
-    sector->minHeap[sector->num_penguins] = newPenguin;
-    shift_up_max_heap(sector->minHeap, sector->num_penguins);
-    sector->maxHeap[sector->num_penguins] = newPenguin;
-    shift_up_min_heap(sector->maxHeap, sector->num_penguins);
-    sector->num_penguins++;
-
-    // // Equilibrar los heaps si es necesario
-    // if (sector->num_penguins > 1 && 
-    //     sector->maxHeapMedian[0].happiness > sector->minHeapMedian[0].happiness) {
-    //     // Intercambiar el máximo de maxHeapMedian con el mínimo de minHeapMedian
-    //     Penguin temp = sector->maxHeapMedian[0];
-    //     sector->maxHeapMedian[0] = sector->minHeapMedian[0];
-    //     sector->minHeapMedian[0] = temp;
-
-    //     // Reajustar ambos heaps
-    //     shift_down_max_heap(sector->maxHeapMedian, 0, sector->num_penguins);
-    //     shift_down_min_heap(sector->minHeapMedian, 0, sector->num_penguins);
-    // }
-
-    // Actualizar el pingüino más feliz si es necesario
-    // if (!sector->happiest_penguin || newPenguin.happiness > sector->happiest_penguin->happiness) {
-    //     int indice = sector->num_penguins - 1;
-    //     sector->happiest_penguin = &newPenguin; 
-    //     printf("\n\nactualizando\n");
-    // }
-
-    // Logs después de reajustar los heaps
-    print_heap(sector->minHeapMedian, sector->num_penguins, "MinHeap Median After", sector->id);
-    print_heap(sector->maxHeapMedian, sector->num_penguins, "MaxHeap Median After", sector->id);
-    print_heap(sector->minHeap, sector->num_penguins, "MinHeap After", sector->id);
-    print_heap(sector->maxHeap, sector->num_penguins, "MaxHeap After", sector->id);
-    printf("Happiest: %d with %d\n", sector->maxHeap[0].id, sector->maxHeap[0].happiness);
-}
-
-
-
-
 int calculate_median_happiness(Sector *sector) {
+    //Funcion de calculo de mediana
     int total_penguins = sector->num_penguins;
 
     if (total_penguins % 2 == 1) {
@@ -329,9 +220,199 @@ int calculate_median_happiness(Sector *sector) {
     }
 }
 
-char* increase_happines(Sector *sector, int penguin_id, int happiness_increase) {
-    int index = -1;
+// Acá no cumplo con la complejidad, no tuve tiempo de buscar la forma correcta asique recorri los heaps para extraer las cosas
+void remove_penguin_from_heaps(Festival *festival, Sector *sector, int penguin_id, int happiness) {
+    // Lo sacamos del minheap
+    sector->minHeap[0] = sector->minHeap[sector->num_penguins - 1];
+    sector->num_penguins--;
+    shift_down_min_heap(sector->minHeap, 0, sector->num_penguins);
+    printf("\n\nsacado de minheap\n\n");
 
+    // Lo sacamos del maxHeap
+    int max_heap_index = -1;
+    for (int i = 0; i <= sector->num_penguins; i++) {
+        if (sector->maxHeap[i].id == penguin_id && sector->maxHeap[i].happiness == happiness) {
+            max_heap_index = i;
+            break;
+        }
+    }
+    if (max_heap_index != -1) {
+        sector->maxHeap[max_heap_index] = sector->maxHeap[sector->num_maxheap - 1];
+        sector->num_maxheap--;
+        shift_down_max_heap(sector->maxHeap, max_heap_index, sector->num_maxheap);
+        printf("\n\nsacado de maxheap\n\n");
+    }
+
+    // Lo sacamos del minHeapMedian
+    int min_heap_median_index = -1;
+    for (int i = 0; i <= sector->num_minheap; i++) {
+        if (sector->minHeapMedian[i].id == penguin_id && sector->minHeapMedian[i].happiness == happiness) {
+            min_heap_median_index = i;
+            break;
+        }
+    }
+    if (min_heap_median_index != -1) {
+        sector->minHeapMedian[min_heap_median_index] = sector->minHeapMedian[sector->num_minheap];
+        sector->num_minheap--;
+        shift_down_min_heap(sector->minHeapMedian, min_heap_median_index, sector->num_minheap);
+        print_heap(sector->minHeapMedian, sector->num_penguins, "MinHeap Median After leaving", sector->id);
+        printf("\n\nsacado de medianMinheap\n\n");
+    }
+
+    // Lo sacamos del bigHeap
+    int big_heap_index = -1;
+    for (int i = 0; i <= festival->bigHeapSize; i++) {
+        if (festival->bigHeap[i].id == penguin_id && festival->bigHeap[i].happiness == happiness) {
+            big_heap_index = i;
+            break;
+        }
+    }
+    if (big_heap_index != -1) {
+        festival->bigHeap[big_heap_index] = festival->bigHeap[festival->bigHeapSize - 1];
+        festival->bigHeapSize--;
+        shift_down_big_heap(festival->bigHeap, big_heap_index, festival->bigHeapSize);
+        printf("\n\nsacado de bigheap\n\n");
+    }
+    return;
+}
+
+
+
+// FUnciones de Eventos
+
+
+//Falta hacer conteo de ping en heaps, y si estan los dos heaps con los mismos se deberia meter al max, pero antes 
+//se compara con el mayor del min ya que sino se pone en su lugar y ese se va al max y luego reordenar
+
+//Falta arreglar el remove pinguin - los shifts down
+// El increase happiness
+
+//Acá se meten todos los pinguinos a un heap en donde estan todos, de todos los sectores
+void add_penguin_festival(Festival *festival, int penguin_id, int happiness, int sector_id) {
+   
+    Penguin newPenguin = {penguin_id, happiness, sector_id};
+    festival->bigHeap[festival->bigHeapSize] = newPenguin; 
+    festival->bigHeapSize++; 
+    shift_up_big_heap(festival->bigHeap, festival->bigHeapSize - 1);
+    print_heap(festival->bigHeap, festival->bigHeapSize, "All After", 0);
+}
+
+//Acá se meten los pinguinos a sus respectivos heaps y sectores
+//Hay unos cuantos prints para ir debuggeando, pero lo que importa se retorna al main
+void add_penguin(Sector *sector, int penguin_id, int happiness) {
+    if (sector->num_penguins >= sector->capacity) {
+        printf("Sector %d lleno\n", sector->id);
+        return;
+    }
+    int entro = 0; // Variable para que no entren a mas de un heap cuando no es necesario
+    Penguin newPenguin = {penguin_id, happiness , sector->id};
+
+    // Casos base, primeros pinguinos que entran
+    //Siempre primero al max, y el segundo al min
+    if (sector->num_maxheap == 0 && entro == 0) {
+        sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
+        shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
+        sector->num_maxheap++;
+        entro++;
+    } else if (sector->num_penguins == 1 && entro == 0) {
+            // shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
+            // sector->num_minheap++;
+        
+
+        // Reemplazar el mínimo de minHeapMedian con el nuevo pingüino
+        Penguin temp = sector->minHeapMedian[0];
+        sector->minHeapMedian[0] = newPenguin;
+        shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
+        // Agregar el antiguo mínimo al maxHeapMedian
+        sector->num_minheap++;
+        entro++;
+    }
+
+    // Agregar al maxHeapMedian o minHeapMedian, este es el caso en que ambos tengan la misma cantidad de pingüinos
+    if (sector->num_maxheap == sector->num_minheap && entro == 0) {
+        // Si la felicidad del nuevo pingüino es menor que la del mínimo en minHeapMedian
+        if (happiness < sector->minHeapMedian[0].happiness) {
+            // Mover el mínimo de minHeapMedian al maxHeapMedian
+            Penguin temp = sector->minHeapMedian[0]; 
+            sector->minHeapMedian[0] = sector->minHeapMedian[sector->num_minheap - 1]; 
+            sector->num_minheap--; 
+            shift_down_min_heap(sector->minHeapMedian, 0, sector->num_minheap); 
+
+            // Agregar el pingüino movido a maxHeapMedian
+            sector->maxHeapMedian[sector->num_maxheap] = temp;
+            shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap); 
+            sector->num_maxheap++; 
+
+            // Agregar el nuevo pingüino al minHeapMedian
+            sector->minHeapMedian[sector->num_minheap] = newPenguin;
+            shift_up_min_heap(sector->minHeapMedian, sector->num_minheap); 
+            sector->num_minheap++; 
+        } else {
+            // Agregar a maxHeapMedian (si no entra en el caso anterior)
+            sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
+            shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
+            sector->num_maxheap++;
+        }
+    }
+
+    // Acá ya es para ingresar a los median de forma regular
+    else if ((sector->num_maxheap > 0 && happiness >= sector->maxHeapMedian[0].happiness) && entro == 0) {
+        if (sector->num_maxheap - sector->num_minheap <= 1){
+            // Mover el menor del maxHeapMedian al minHeapMedian
+            Penguin temp = sector->maxHeapMedian[0];
+            sector->maxHeapMedian[0] = sector->maxHeapMedian[sector->num_maxheap - 1]; 
+            sector->num_maxheap--;
+            shift_down_max_heap(sector->maxHeapMedian, 0, sector->num_maxheap); 
+
+            // Agregar el pingüino movido a minHeapMedian
+            sector->minHeapMedian[sector->num_minheap] = temp;
+            shift_up_min_heap(sector->minHeapMedian, sector->num_minheap); 
+            sector->num_minheap++; 
+        }
+        // Agregar a maxHeapMedian
+        sector->maxHeapMedian[sector->num_maxheap] = newPenguin;
+        shift_up_max_heap(sector->maxHeapMedian, sector->num_maxheap);
+        sector->num_maxheap++;
+        entro++;
+
+    } else {
+        // Agregar a minHeapMedian
+        if(sector->num_maxheap != 0 && entro == 0){
+            sector->minHeapMedian[sector->num_minheap] = newPenguin;
+            shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
+            sector->num_minheap++;
+            entro++;
+        }
+    }
+
+    // Agregar al heap de todos los pingüinos, al min y max
+    sector->minHeap[sector->num_penguins] = newPenguin;
+    shift_up_max_heap(sector->minHeap, sector->num_penguins);
+    sector->maxHeap[sector->num_penguins] = newPenguin;
+    shift_up_min_heap(sector->maxHeap, sector->num_penguins);
+    print_heap(sector->minHeapMedian, sector->num_penguins, "MaxHeap Median Afterasdasdasdasd", sector->id);
+    print_heap(sector->maxHeapMedian, sector->num_penguins, "MaxHeap Median Afterasdasdasdasd", sector->id);
+    sector->num_penguins++;
+    print_heap(sector->minHeapMedian, sector->num_penguins, "MaxHeap Median Afterasdasdasdasd", sector->id);
+    print_heap(sector->maxHeapMedian, sector->num_penguins, "MaxHeap Median Afterasdasdasdasd", sector->id);
+
+
+    //Ahora insertamos las medianas a sus heaps
+
+    // Logs después de reajustar los heaps, esto son solo para debuggear y ver como van los heaps
+    print_heap(sector->minHeapMedian, sector->num_penguins, "MinHeap Median After", sector->id);
+    print_heap(sector->maxHeapMedian, sector->num_penguins, "MaxHeap Median After", sector->id);
+    print_heap(sector->minHeap, sector->num_penguins, "MinHeap After", sector->id);
+    print_heap(sector->maxHeap, sector->num_penguins, "MaxHeap After", sector->id);
+    printf("Happiest: %d with %d\n", sector->maxHeap[0].id, sector->maxHeap[0].happiness);
+    
+}
+
+
+char* increase_happines(Sector *sector, int penguin_id, int happiness_increase) {
+    // Funcion para evento de incrementar happiness
+
+    int index = -1;
     // Buscar el pingüino en el heap de todos
     for (int i = 0; i < sector->num_penguins; i++) {
         if (sector->minHeap[i].id == penguin_id) {
@@ -339,7 +420,6 @@ char* increase_happines(Sector *sector, int penguin_id, int happiness_increase) 
             break;
         }
     }
-
     // Aumentar la felicidad en el heap de todos
     sector->minHeap[index].happiness += happiness_increase;
 
@@ -362,7 +442,9 @@ char* festival_details(Festival *festival) {
     size_t message_size = 1000;
     char *message = malloc(message_size);
 
-    size_t used = 0;
+    size_t used = 0;// Este es unico mensaje que puede ser en verdad largo, por lo que la mejor opcion que encontre fue esta
+                    // Todo se va uniendo al mensaje original, y el tamaño se va agrandando, y si en algun miunto supera el message_size, 
+                    //simplemente este se agranda, esto para no usar mas memoria de la necesaria, y poder hacer el alloc con el tamaño siempre correcto
     used += snprintf(message + used, message_size - used, "Festival Stats:\n");
 
     for (int i = 0; i < festival->num_sectors; i++) {
@@ -395,10 +477,10 @@ char* festival_details(Festival *festival) {
 
 
 char* Leave(Festival *festival) {
-    int min_median = festival->sectors[0].maxHeap[0].happiness; //asi nos aseguramos que es mayor a la mediana
+    int min_median = festival->sectors[0].maxHeap[0].happiness; //asi tomamos un valor del cual nos aseguramos que es mayor o igual a la mediana
     int sector_index = 0; 
 
-    // Paso 1: Encontrar el sector con la menor mediana
+    // Primero encontramos el sector con la menor mediana
     for (int i = 0; i < festival->num_sectors; i++) {
         int median_happiness = calculate_median_happiness(&festival->sectors[i]);
         if (median_happiness < min_median) {
@@ -406,37 +488,62 @@ char* Leave(Festival *festival) {
             sector_index = i;
         }
     }
+
     Sector *selected_sector = &festival->sectors[sector_index];
+    // Encontrar el pinguino que tiene que salir es facil por el minheap
     printf("deberia salir %d del sector %d con %d\n", selected_sector->minHeap[0].id, sector_index, selected_sector->minHeap[0].happiness);
     char *message = malloc(100);
     snprintf(message, 100, "Penguin %d leaving sector %d\n", selected_sector->minHeap[0].id, sector_index);
-    //remove_penguin_from_heaps(selected_sector, selected_sector->minHeap[0].id);
+    //Acá lo removemos de todos lados
+    remove_penguin_from_heaps(festival, selected_sector, selected_sector->minHeap[0].id, selected_sector->minHeap[0].happiness);
     return message;
 }
 
-// void remove_penguin_from_heaps(Sector *sector, int penguin_id) {
-//     // Remove the penguin from the minHeap
-//     sector->minHeap[0] = sector->minHeap[sector->num_penguins - 1];
-//     sector->num_penguins--;
-//     shift_down_max_heap(sector->minHeap, 0, sector->num_penguins);
+// Falta cumplir con la complejidad
+char* Medians(Festival *festival) {
+    // Funcion para calcular la mejor y peor mediana
+    //Si solo hay uno es peor y mejor, asique inicialmente es 'el
+    int temp_median = calculate_median_happiness(&festival->sectors[0]);
+    int lower_median = temp_median;
+    int best_median = temp_median;
+    int lower_median_id = festival->sectors[0].id; 
+    int best_median_id = festival->sectors[0].id;
 
-//     // Remove the penguin from the maxHeap
-//     sector->maxHeap[penguin_index] = sector->maxHeap[sector->num_penguins];
-//     shift_down_min_heap(sector->maxHeap, penguin_index, sector->num_penguins);
+    for (int i = 0; i < festival->num_sectors; i++) {
+        int temp_median = calculate_median_happiness(&festival->sectors[i]);
+        // Buscamos al con menor mediana
+        if (lower_median >= temp_median) {
+            // Caso de empate de mediana, el con mayor id se mantiene como menor
+            if (lower_median == temp_median && lower_median_id < i){
+                lower_median = temp_median;
+                lower_median_id = i;
+            }
+            else {
+                lower_median = temp_median;
+                lower_median_id = i;
+            }
+        }
 
-//     // Remove the penguin from the minHeapMedian
-//     int min_heap_median_index = -1;
-//     for (int i = 0; i < sector->num_minheap; i++) {
-//         if (sector->minHeapMedian[i].id == sector->minHeap[penguin_index].id) {
-//             min_heap_median_index = i;
-//             break;
-//         }
-//     }
-//     sector->minHeapMedian[min_heap_median_index] = sector->minHeapMedian[sector->num_minheap - 1];
-//     sector->num_minheap--;
-//     shift_down_min_heap(sector->minHeapMedian, min_heap_median_index, sector->num_minheap);
-// }
+         // Buscamos al con mayor mediana
+        if (best_median <= temp_median) {
+            // Caso de empate de mediana, el con mayor id se mantiene como mayor
+            if (best_median == temp_median && best_median_id > i){
+                best_median = temp_median;
+                best_median_id = i;
+            }
+            else {
+                best_median = temp_median;
+                best_median_id = i;
+            }
+        }
+    }
 
+    printf("Medians resume:\n   %d v/s %d\n %d - %d\n", best_median_id, lower_median_id, best_median, lower_median);
+    // Ahora construimos el mensaje para el output
+    char *message = malloc(100);
+    snprintf(message, 100, "Medians resume:\n    %d v/s %d\n    %d - %d", best_median_id, lower_median_id, best_median, lower_median);
+    return message;
+}
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -444,10 +551,7 @@ char* Leave(Festival *festival) {
 #include <string.h>
 
 
-/* Retorna true si ambos strings son iguales */
-static bool string_equals(char *string1, char *string2) {
-  return !strcmp(string1, string2);
-}
+
 
 static bool check_arguments(int argc, char **argv) {
   if (argc != 3) {
@@ -506,6 +610,9 @@ int main(int argc, char **argv) {
     }
     else if (string_equals(command, "LEAVE")) {
       output = Leave(&festival);
+    }
+    else if (string_equals(command, "MEDIANS")) {
+      output = Medians(&festival);
     }
     
     // Continuar con más eventos...
