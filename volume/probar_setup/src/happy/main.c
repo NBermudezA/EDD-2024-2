@@ -52,6 +52,7 @@ char* Medians(Festival *festival);
 
 #endif
 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -261,7 +262,6 @@ void remove_penguin_from_heaps(Festival *festival, Sector *sector, int penguin_i
         sector->minHeapMedian[index] = sector->minHeapMedian[sector->num_minheap];
         sector->num_minheap--;
         shift_down_min_heap(sector->minHeapMedian, index, sector->num_minheap);
-        print_heap(sector->minHeapMedian, sector->num_penguins, "MinHeap Median After leaving", sector->id);
         printf("\n\nsacado de medianMinheap\n\n");
     }
 
@@ -285,7 +285,6 @@ void remove_penguin_from_heaps(Festival *festival, Sector *sector, int penguin_i
 
 
 // FUnciones de Eventos
-
 
 //Falta arreglar el remove pinguin - los shifts down
 
@@ -317,12 +316,7 @@ void add_penguin(Sector *sector, int penguin_id, int happiness) {
         sector->num_maxheap++;
         entro++;
     } else if (sector->num_penguins == 1 && entro == 0) {
-            // shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
-            // sector->num_minheap++;
-        
-
         // Reemplazar el mínimo de minHeapMedian con el nuevo pingüino
-        //Penguin temp = sector->minHeapMedian[0];
         sector->minHeapMedian[0] = newPenguin;
         shift_up_min_heap(sector->minHeapMedian, sector->num_minheap);
         // Agregar el antiguo mínimo al maxHeapMedian
@@ -478,7 +472,7 @@ char* increase_happines(Festival *festival, int sector_id, int penguin_id, int h
             swap++;
         }
     }
-    // realizamos el swap
+    // realizamos el swap en caso de ser necesario
     if (swap > 0) {
         Penguin minPenguin = festival->sectors[sector_id].minHeapMedian[0];
         Penguin maxPenguin = festival->sectors[sector_id].maxHeapMedian[0];
@@ -598,7 +592,7 @@ char* Medians(Festival *festival) {
     printf("Medians resume:\n   %d v/s %d\n %d - %d\n", best_median_id, lower_median_id, best_median, lower_median);
     // Ahora construimos el mensaje para el output
     char *message = malloc(100);
-    snprintf(message, 100, "Medians resume:\n    %d v/s %d\n    %d - %d", best_median_id, lower_median_id, best_median, lower_median);
+    snprintf(message, 100, "Medians resume:\n    %d v/s %d\n    %d - %d\n", best_median_id, lower_median_id, best_median, lower_median);
     return message;
 }
 
