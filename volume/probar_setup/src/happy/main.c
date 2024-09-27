@@ -81,16 +81,24 @@ void init_festival(Festival *festival, int num_sectors, int *capacities) {
         festival->sectors[i].num_penguins = 0;
         festival->sectors[i].num_maxheap = 0;
         festival->sectors[i].num_minheap = 0;
+
         festival->sectors[i].minHeapMedian = malloc(capacities[i] * sizeof(Penguin));
         festival->sectors[i].maxHeapMedian = malloc(capacities[i] * sizeof(Penguin));
         festival->sectors[i].minHeap = malloc(capacities[i] * sizeof(Penguin));
         festival->sectors[i].maxHeap = malloc(capacities[i] * sizeof(Penguin));
-        capacidad_big_heap = capacidad_big_heap + capacities[i];
+
+        // Inicializamos todos los valores a cero
+        memset(festival->sectors[i].minHeapMedian, 0, capacities[i] * sizeof(Penguin));
+        memset(festival->sectors[i].maxHeapMedian, 0, capacities[i] * sizeof(Penguin));
+        memset(festival->sectors[i].minHeap, 0, capacities[i] * sizeof(Penguin));
+        memset(festival->sectors[i].maxHeap, 0, capacities[i] * sizeof(Penguin));
+
+        capacidad_big_heap += capacities[i];
     }
     festival->bigHeap = malloc(sizeof(Penguin) * capacidad_big_heap); 
     festival->bigHeapSize = 0;
-    // acá inicializamos todas las cosas
 }
+
 
 void print_heap(Penguin *heap, int size, const char *heapName, int sector_id) {
     printf("heap:%s - from: %d: ", heapName, sector_id);
